@@ -6,12 +6,22 @@ class Household extends Model {  }
   Household.init(
     {
         id: {
-            type: DataTypes.INTEGER, 
-            allowNull: false,
-            primaryKey: true,
-            autoIncrement: true,
+          type: DataTypes.INTEGER, 
+          allowNull: false,
+          primaryKey: true,
+          autoIncrement: true,
         },
-        //*db params go here
+        name: {
+          type: DataTypes.STRING,
+          allowNull: false,
+        },
+        user_id: {
+          type: DataTypes.INTEGER,
+          references: {
+            model: 'user',
+            key: 'id',
+          },
+        },
     },
 
     {

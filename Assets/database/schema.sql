@@ -1,4 +1,4 @@
-DROP DATABASE IF EXISTS example_db;
+DROP DATABASE IF EXISTS finance_db;
 
-CREATE DATABASE example_db;
+CREATE DATABASE finance_db;
 
