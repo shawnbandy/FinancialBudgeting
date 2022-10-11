@@ -48,3 +48,17 @@ router.get('/', withAuth, async (req, res) => {
     });
   } catch (err) {}
 });
+
+//!Adding something to budget/income/expense
+router.get('/add', withAuth, async (req, res) => {
+  try {
+    res.render('add');
+  } catch (err) {}
+});
+
+//!
+router.get('/edit', withAuth, async (req, res) => {
+  try {
+    res.render('edit');
+  } catch (err) {}
+});
