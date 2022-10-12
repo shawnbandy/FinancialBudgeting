@@ -9,15 +9,15 @@ router.post('/create', async (req, res) => {
       household_id: req.body.household_id,
     });
 
-    res.status(200).json(newIncome);
+    res.status(200).json(newExpense);
   } catch (err) {
-    res.status(404).json({ message: 'Unable to create a new income. ' + err });
+    res.status(404).json({ message: 'Unable to create a new expense. ' + err });
   }
 });
 
 router.put('/edit/:id', async (req, res) => {
   try {
-    const updateIncome = await Income.update(
+    const updateExpense = await Expense.update(
       {
         name: req.body.name,
         amount: req.body.amount,
@@ -28,15 +28,15 @@ router.put('/edit/:id', async (req, res) => {
         },
       }
     );
-    res.status(200).json(updateIncome);
+    res.status(200).json(updateExpense);
   } catch (err) {
-    res.status(404).json({ message: 'Unable to create a new income. ' + err });
+    res.status(404).json({ message: 'Unable to create a new expense. ' + err });
   }
 });
 
 router.delete('/delete/:id', async (req, res) => {
   try {
-    const deleteIncome = await Income.destroy({
+    const deleteExpense = await Expense.destroy({
       where: {
         id: req.params.id,
       },
