@@ -7,11 +7,8 @@ const { Router } = require('express');
 //*eg, router.use('/location', locationRoutes)
 const userRoutes = require('./userRoutes');
 
-<<<<<<< HEAD
 router.use('/income', incomeRoutes);
 router.use('/expense', expenseRoutes);
-=======
-router.use('/user', userRoutes)
->>>>>>> main
+router.use('/user', userRoutes);
 
 module.exports = router;
