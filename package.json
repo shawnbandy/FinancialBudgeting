@@ -11,6 +11,7 @@
         "nodemon": "^2.0.20"
       },
     "scripts": {
-      "start": "node server.js"
+      "start": "node Assets/server.js",
+      "seed": "node seeds/index.js"
     }
 }

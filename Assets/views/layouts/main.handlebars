@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 
   <head>
@@ -12,16 +13,28 @@
 
   <body>
     <header>
-      <h1>Welcome to the ____!</h1>
+      <h1>Budget Buddy</h1>
+      <nav>
+        {{#if logged_in}}
+        <a class="bg-red-600 p-3 mr-2 rounded-md" href="/logout">Logout</a>
+        <a class="bg-red-600 p-3 mr-2 rounded-md" href="/dashboard">My Dashboard</a>
+        {{else}}
+        <a class="bg-red-600 p-3 mr-2 rounded-md" href="/login">Login</a>
+        <a class="bg-red-600 p-3 mr-2 rounded-md" href="/signup">Sign Up</a>
+        {{/if}}
+        <a class="bg-red-600 p-3 mr-2 rounded-md" href="">About Us</a>
+      </nav>
     </header>
-    <nav>
-      <p>nav</p>
-    </nav>
-
     <main>
+      <!-- Render sub layouts here! -->
       {{{body}}}
     </main>
 
+    <!-- if user is logged in, include script for logout js -->
+    {{#if logged_in}}
+    <script src="js/logout.js"></script>
+    {{/if}}
+    
   </body>
 
 </html>
