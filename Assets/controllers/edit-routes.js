@@ -66,3 +66,5 @@ router.get('/budget/:id', withAuth, async (req, res) => {
     res.status(404).json(err);
   }
 });
+
+module.exports = router;
