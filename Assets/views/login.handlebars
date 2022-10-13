@@ -1,19 +1,50 @@
-<div>
-    <h1>Login to your account</h1>
-    <form class="form login-form">
-        <div class="form-group">
-            <label for="email-login">Email Address:</label>
-            <input  class="form-input" type="text" id="email-login" />
-        </div>
-        <div class="form-group">
-            <label for="pw-login">Password:</label>
-            <input  class="form-input" type="password" id="pw-login" />
-        </div>
-        <!-- Insert cute little remember me box and forgot password link -->
-        <div class="form-group">
-            <button class="btn btn-primary bg-indigo-700 rounded-md p-1" type="submit" id="login-button">Sign in</button>
-        </div>
-    </form>
-</div>
+<section class='p-[10%]'>
+  <div
+    class='flex flex-wrap flex-col justify-center h-fit mx-auto pt-5 pb-5 w-[90%] mb-[10%] bg-local visible'
+  >
+    <h2
+      class="text-[34px] leading-loose mb-5 text-[#FD0D35] font-['Poppins']"
+    >Log in to your account</h2>
+    <!-- This sections is for the two main log in fields -->
+    <section id='main-fields'>
+      <!-- Username field -->
+      <input
+        type='text'
+        id='username'
+        class='form-control mb-5 w-[80%] h-[42px] rounded-md p-2'
+        placeholder='Email Address/ Username'
+      />
+      <!-- Password field -->
+      <input
+        type='text'
+        id='password'
+        class='form-control mb-5 w-[80%] h-[42px] rounded-md p-2'
+        placeholder='Password'
+      />
+    </section>
 
-<script src="js/login.js"></script>
+    <!-- This section will separate the remember-me and forgot password from main fields -->
+    <section
+      class="grid grid-flow-col grid-cols-{2} text-[#FD0D35] font-['Poppins'] leading-8 pb-6 text-[20px]"
+    >
+      <!-- Remember me checkbox -->
+      <div>
+        <input type='checkbox' value='remember-me' />
+        <label>Remember me</label>
+      </div>
+      <div>
+        <a href=''>Forgot password?</a>
+      </div>
+    </section>
+
+    <section id='sign-in' class='flex justify-center'>
+      <button
+        type='button'
+        class="bg-[#FD0D35] rounded-md p-2 w-[60%] text-white font-['Poppins']"
+      >Sign in</button>
+    </section>
+
+  </div>
+</section>
+
+<script src='js/login.js'></script>

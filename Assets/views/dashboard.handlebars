@@ -6,17 +6,30 @@
     <!--Start of budget-->
     <section class='border border-solid border-red-900 text-center'>
       This will be the Budget
+      <div>
+        {{#each budgetRev as |budget|}}
+        {{> budget-dashboard}}
+        {{/each}}
+      </div>
     </section>
     <section class='border border-solid border-green-900 text-center'>
       <!--Start of Expenses-->
       <section class='border border-solid border-blue-900 text-center'>
         <p>This will be the Expenses</p>
-        <div>Start of expenses</div>
+        <div>Start of expenses
+          {{#each expenseRev as |expense|}}
+          {{> expense-dashboard}}
+          {{/each}}
+        </div>
       </section>
       <!--Start of Income-->
       <section class='border border-solid border-orange-900 text-center'>
         <p>This will be the Income</p>
-        <div>Start of Income</div>
+        <div>Start of Income
+          {{#each incomeRev as |income|}}
+          {{> income-dashboard}}
+          {{/each}}
+        </div>
       </section>
     </section>
   </section>

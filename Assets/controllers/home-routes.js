@@ -10,6 +10,13 @@ const {
 } = require('../models');
 const withAuth = require('../utils/auth');
 
+//!SignUp
+router.get('/signup', async (req, res) => {
+  try {
+    res.render('signup');
+  } catch (err) {}
+});
+
 //!Login
 router.get('/login', async (req, res) => {
   if (req.session.loggedIn) {
@@ -29,8 +36,8 @@ router.get('/', async (req, res) => {
   }
 });
 
-//!Dashboard
-router.get('/dashboard', withAuth, async (req, res) => {
+//!Dashboard. Need to add WithAuth
+router.get('/dashboard', async (req, res) => {
   //*home page needs your budget, expenses, and incomes
   try {
     const budgetData = await Budget.findAll(); //*TBC
@@ -71,3 +78,5 @@ router.get('/edit', withAuth, async (req, res) => {
     res.render('edit');
   } catch (err) {}
 });
+
+module.exports = router;
