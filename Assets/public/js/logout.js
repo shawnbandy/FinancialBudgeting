@@ -1,0 +1,1 @@
+// Add an event listener to the logout button

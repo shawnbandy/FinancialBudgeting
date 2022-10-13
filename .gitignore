@@ -1,4 +1,7 @@
 node_modules/
 .DS_Store/
 .env
+connection.js
+save-for-later.html
 index.html
+
