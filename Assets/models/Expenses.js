@@ -23,7 +23,7 @@ class Expenses extends Model {  }
           type: DataTypes.INTEGER,
           references: {
             model: 'budget',
-            key: 'id',
+            key: 'id'
           },
         },       
                 

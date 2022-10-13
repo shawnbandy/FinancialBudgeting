@@ -38,7 +38,7 @@ Budget.belongsTo(Household, {
   foreignKey: 'household_id',
 });
 Expenses.belongsTo(Budget, {  
-  foreignKey: "budget_id,"
+  foreignKey: "budget_id",
 })
 
 
