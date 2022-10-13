@@ -71,9 +71,3 @@ router.get('/edit', withAuth, async (req, res) => {
     res.render('edit');
   } catch (err) {}
 });
-
-<<<<<<< HEAD
-module.exports = router;
-=======
-module.exports = router;
->>>>>>> main
