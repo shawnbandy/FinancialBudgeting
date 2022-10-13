@@ -1,28 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<html lang='“en”'>
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MVC</title>
-
-    <!--tailwind linking-->
-    <script rel="stylesheet" src="https://cdn.tailwindcss.com"></script>
-
+    <meta charset='“UTF-8"' />
+    <meta http-equiv='“X-UA-Compatible”' content='“IE=edge”' />
+    <meta
+      name='“viewport”'
+      content='“width=device-width,'
+      initial-scale='1.0"'
+    />
+    <!-- Tailwind CSS -->
+    <link
+      rel='“stylesheet”'
+      href='“https:'
+      cdn.jsdelivr.net
+      npm
+      tw-elements
+      dist
+      css
+      index.min.css”
+    />
+    <script src='https://cdn.tailwindcss.com'></script>
+    <style>
+      @import
+      url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+    </style>
+    <title>Budget Buddy</title>
   </head>
 
-  <body>
+  <body class='bg-[#502488]'>
     <header>
       <h1>Budget Buddy</h1>
       <nav>
         {{#if logged_in}}
-        <button class="no-button bg-red-600 p-3 rounded-md" id="logout">Logout</button>
-        <a class="bg-red-600 p-3 mr-2 rounded-md" href="/dashboard">My Dashboard</a>
+          <button
+            class='no-button bg-red-600 p-3 rounded-md'
+            id='logout'
+          >Logout</button>
+          <a class='bg-red-600 p-3 mr-2 rounded-md' href='/dashboard'>My
+            Dashboard</a>
         {{else}}
-        <a class="bg-red-600 p-3 mr-2 rounded-md" href="/login">Login</a>
-        <a class="bg-red-600 p-3 mr-2 rounded-md" href="/signup">Sign Up</a>
+          <a class='bg-red-600 p-3 mr-2 rounded-md' href='/login'>Login</a>
+          <a class='bg-red-600 p-3 mr-2 rounded-md' href='/signup'>Sign Up</a>
         {{/if}}
-        <a class="bg-red-600 p-3 mr-2 rounded-md" href="">About Us</a>
+        <a class='bg-red-600 p-3 mr-2 rounded-md' href=''>About Us</a>
       </nav>
     </header>
     <main>
@@ -32,9 +51,9 @@
 
     <!-- if user is logged in, include script for logout js -->
     {{#if logged_in}}
-    <script src="js/logout.js"></script>
+      <script src='js/logout.js'></script>
     {{/if}}
-    
+
   </body>
 
 </html>
