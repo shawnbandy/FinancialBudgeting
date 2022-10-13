@@ -19,11 +19,11 @@ class Expenses extends Model {  }
           type: DataTypes.DECIMAL(10,2),
           allowNull: false,          
         },
-        household_id: {
+        budget_id: {
           type: DataTypes.INTEGER,
           references: {
-            model: 'household',
-            key: 'id',
+            model: 'budget',
+            key: 'id'
           },
         },       
                 
