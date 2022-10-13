@@ -4,7 +4,7 @@ const Household = require('./Household');
 const Expenses = require('./Expenses');
 const Income = require('./Income');
 const Budget = require('./Budget');
-const BudgetExpenses = require('./BudgetExpenses')
+
 
 // *this is where we will link models together
 // *eg, Picture.belongsTo(Phone)
@@ -17,14 +17,14 @@ User.hasOne(Household, {
 Household.hasMany(Income, {
   foreignKey: 'household_id',
   onDelete: 'CASCADE',
-});  
-  
-Household.hasMany(Expenses, {
+});    
+
+Household.hasMany(Budget, {
   foreignKey: 'household_id',
   onDelete: 'CASCADE',
 });
-Household.hasMany(Budget, {
-  foreignKey: 'household_id',
+Budget.hasMany(Expenses, {  
+  foreignKey: "budget_id",
   onDelete: 'CASCADE',
 });
 Household.belongsTo(User, {
@@ -34,20 +34,12 @@ Household.belongsTo(User, {
 Income.belongsTo(Household, {
   foreignKey: 'household_id',
 });
-Expenses.belongsTo(Household, {
-  foreignKey: 'household_id',
-});
 Budget.belongsTo(Household, {
   foreignKey: 'household_id',
 });
-Budget.belongsToMany(Expenses, {
-  through: BudgetExpenses,
-  foreignKey: "budget_id",
-});
-Expenses.belongsToMany(Budget, {
-  through: BudgetExpenses,
-  foreignKey: "expenses_id,"
+Expenses.belongsTo(Budget, {  
+  foreignKey: "budget_id,"
 })
 
 
-module.exports = { User, Household, Income, Expenses, Budget, BudgetExpenses };
+module.exports = { User, Household, Income, Expenses, Budget };
