@@ -66,10 +66,6 @@ router.get('/budget/:id', withAuth, async (req, res) => {
   }
 });
 
-<<<<<<< HEAD
-module.exports = router;
-=======
 
 module.exports = router;
 
->>>>>>> 86bfd52dd58369e69bc2f2fbe31bf2b0e48dc93b
