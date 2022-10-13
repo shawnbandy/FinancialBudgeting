@@ -2,10 +2,6 @@ const router = require('express').Router();
 const expenseRoutes = require('./expense-routes.js');
 const incomeRoutes = require('./income-routes.js');
 
-<<<<<<< HEAD
-//const { Router } = require('express');
-=======
->>>>>>> main
 //*this is where we link the routers with other parts of api
 //*eg, router.use('/location', locationRoutes)
 const userRoutes = require('./userRoutes');
