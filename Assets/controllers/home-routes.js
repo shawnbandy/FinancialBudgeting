@@ -13,15 +13,24 @@ const withAuth = require('../utils/auth');
 //!Login
 router.get('/login', async (req, res) => {
   if (req.session.loggedIn) {
-    res.redirect('/');
+    res.redirect('/dashboard');
     return;
   } else {
     res.render('login');
   }
 });
 
+//!Homepage/Landing page
+router.get('/', async (req, res) => {
+  try {
+    res.render('homepage');
+  } catch (err) {
+    console.log(err);
+  }
+});
+
 //!Dashboard
-router.get('/', withAuth, async (req, res) => {
+router.get('/dashboard', withAuth, async (req, res) => {
   //*home page needs your budget, expenses, and incomes
   try {
     const budgetData = await Budget.findAll(); //*TBC
@@ -62,3 +71,5 @@ router.get('/edit', withAuth, async (req, res) => {
     res.render('edit');
   } catch (err) {}
 });
+
+module.exports = router;
