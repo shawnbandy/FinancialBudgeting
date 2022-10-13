@@ -38,4 +38,8 @@ router.get('/expenses', withAuth, async (req, res) => {
   } catch (err) {}
 });
 
+<<<<<<< HEAD
 module.exports = router;
+=======
+module.exports = router;
+>>>>>>> main
