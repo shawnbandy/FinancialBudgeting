@@ -46,3 +46,7 @@ router.delete('/delete/:id', async (req, res) => {
     res.status(404).json({ message: 'Unable to create a new income. ' + err });
   }
 });
+
+
+module.exports = router;
+

@@ -1,8 +1,7 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
 const {
-  Budget,
-  BudgetExpenses,
+  Budget,  
   Expenses,
   Household,
   Income,
@@ -66,3 +65,7 @@ router.get('/budget/:id', withAuth, async (req, res) => {
     res.status(404).json(err);
   }
 });
+
+
+module.exports = router;
+
