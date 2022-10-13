@@ -13,6 +13,6 @@
       },
     "scripts": {
       "start": "node Assets/server.js",
-      "seed": "node seeds/index.js"
+      "seed": "node Assets/seeds/index.js"
     }
 }
