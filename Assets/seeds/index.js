@@ -4,7 +4,7 @@ const seedHousehold = require('./householdData');
 const seedIncome = require('./incomeData');
 const seedExpenses = require('./expensesData');
 const seedBudget = require('./budgetData');
-const seedBudgetExpenses = require('./budgetexpensesData');
+
 
 //Seed the database; user first, then household, then income and finally expenses
 const seedAll = async () => {
@@ -18,9 +18,7 @@ const seedAll = async () => {
 
   await seedBudget();
 
-  await seedExpenses();
-
-  await seedBudgetExpenses();
+  await seedExpenses();  
 
   process.exit(0);
 };
