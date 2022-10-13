@@ -1,59 +1,72 @@
-<html lang='“en”'>
+<!DOCTYPE html>
+<html lang="en">
+
   <head>
-    <meta charset='“UTF-8"' />
-    <meta http-equiv='“X-UA-Compatible”' content='“IE=edge”' />
-    <meta
-      name='“viewport”'
-      content='“width=device-width,'
-      initial-scale='1.0"'
-    />
-    <!-- Tailwind CSS -->
-    <link
-      rel='“stylesheet”'
-      href='“https:'
-      cdn.jsdelivr.net
-      npm
-      tw-elements
-      dist
-      css
-      index.min.css”
-    />
-    <script src='https://cdn.tailwindcss.com'></script>
-    <style>
-      @import
-      url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-    </style>
-    <title>Budget Buddy</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Buddy Homepage</title>
+        <!-- Tailwind CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css">
   </head>
 
-  <body class='bg-[#502488]'>
-    <header>
-      <h1>Budget Buddy</h1>
-      <nav>
-        {{#if loggedIn}}
-          <button
-            class='no-button bg-red-600 p-3 rounded-md'
-            id='logout'
-          >Logout</button>
-          <a class='bg-red-600 p-3 mr-2 rounded-md' href='/dashboard'>My
-            Dashboard</a>
-        {{else}}
-          <a class='bg-red-600 p-3 mr-2 rounded-md' href='/login'>Login</a>
-          <a class='bg-red-600 p-3 mr-2 rounded-md' href='/signup'>Sign Up</a>
-        {{/if}}
-        <a class='bg-red-600 p-3 mr-2 rounded-md' href=''>About Us</a>
-      </nav>
-    </header>
+  <body class="bg-violet-900">
+    <nav class="bg-white">
+      <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+        <div class="relative flex h-16 items-center justify-between">
+          <h1>Budget Buddy</h1>
+          <div class="absolute inset-y-0 left-0 flex items-center sm:hidden"></div>
+            <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-end">
+              <div class="hidden sm:ml-6 sm:block">
+                <div class="flex space-x-4">
+                  {{#if logged_in}}
+                  <button class="no-button bg-red-600 p-3 rounded-md" id="logout">Logout</button>
+                  <a href="/dashboard" class="bg-red-500 text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Dashboard</a>
+
+                  {{else}}
+                  <a href="/login" class="bg-red-500 text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Login</a>
+                  <a href="/signup" class="bg-red-500 text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Sign Up</a>
+
+                  {{/if}}
+                  <a href="#" class="bg-red-500 text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">About Us</a> 
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile menu, show/hide based on menu state. -->
+        <div class="sm:hidden" id="mobile-menu">
+          <div class="space-y-1 px-2 pt-2 pb-3">
+            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                  {{#if logged_in}}
+                  <button class="no-button bg-red-600 p-3 rounded-md" id="logout">Logout</button>
+                  <a href="/dashboard" class="bg-red-500 text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Dashboard</a>
+
+                  {{else}}
+                  <a href="/login" class="bg-red-500 text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Login</a>
+                  <a href="/signup" class="bg-red-500 text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Sign Up</a>
+
+                  {{/if}}
+                  <a href="#" class="bg-red-500 text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">About Us</a>         </div>
+        </div>
+    </nav>
+
     <main>
       <!-- Render sub layouts here! -->
       {{{body}}}
     </main>
 
     <!-- if user is logged in, include script for logout js -->
-    {{#if loggedIn}}
-      <script src='js/logout.js'></script>
+    {{#if logged_in}}
+    <script src="js/logout.js"></script>
+
     {{/if}}
-
-  </body>
-
+    
+    
+    <!--tailwind linking-->
+    <script rel="stylesheet" src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind Elements -->
+    <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
+</body>
 </html>
