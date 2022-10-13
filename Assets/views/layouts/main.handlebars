@@ -16,7 +16,7 @@
       <h1>Budget Buddy</h1>
       <nav>
         {{#if logged_in}}
-        <a class="bg-red-600 p-3 mr-2 rounded-md" href="/logout">Logout</a>
+        <button class="no-button bg-red-600 p-3 rounded-md" id="logout">Logout</button>
         <a class="bg-red-600 p-3 mr-2 rounded-md" href="/dashboard">My Dashboard</a>
         {{else}}
         <a class="bg-red-600 p-3 mr-2 rounded-md" href="/login">Login</a>
