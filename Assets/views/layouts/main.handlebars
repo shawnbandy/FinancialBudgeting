@@ -30,7 +30,7 @@
     <header>
       <h1>Budget Buddy</h1>
       <nav>
-        {{#if logged_in}}
+        {{#if loggedIn}}
           <button
             class='no-button bg-red-600 p-3 rounded-md'
             id='logout'
@@ -50,7 +50,7 @@
     </main>
 
     <!-- if user is logged in, include script for logout js -->
-    {{#if logged_in}}
+    {{#if loggedIn}}
       <script src='js/logout.js'></script>
     {{/if}}
 
