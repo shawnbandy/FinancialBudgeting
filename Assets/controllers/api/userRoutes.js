@@ -1,10 +1,25 @@
 const router = require('express').Router();
 
-const { User } = require('../../models/User');
+const { User } = require('../../models');
 
 // Creating the user
 router.post('/', async (req, res) => {
+  console.log('reached');
   try {
+    //*checks to see if the user's username is unique, else it doesn't let them create it
+    const attemptedUsername = req.body.username;
+    const allUsers = await User.findAll();
+    const allUsernames = await allUsers.map((username) =>
+      username.get({ plain: true })
+    );
+
+    for (let i = 0; i < allUsernames.length; i++) {
+      if (attemptedUsername == allUsernames[i].username) {
+        res.status(500).json({ message: 'Someone already has that username' });
+        return;
+      }
+    }
+
     const newUser = await User.create({
       username: req.body.username,
       password: req.body.password,
@@ -16,6 +31,7 @@ router.post('/', async (req, res) => {
       res.json(newUser);
     });
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });

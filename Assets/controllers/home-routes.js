@@ -1,8 +1,7 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
 const {
-  Budget,
-  BudgetExpenses,
+  Budget,  
   Expenses,
   Household,
   Income,
@@ -10,18 +9,43 @@ const {
 } = require('../models');
 const withAuth = require('../utils/auth');
 
+//!SignUp
+router.get('/signup', async (req, res) => {
+  try {
+    res.render('signup');
+  } catch (err) {}
+});
+
 //!Login
 router.get('/login', async (req, res) => {
   if (req.session.loggedIn) {
-    res.redirect('/');
+    res.redirect('/dashboard');
     return;
   } else {
     res.render('login');
   }
 });
 
-//!Dashboard
-router.get('/', withAuth, async (req, res) => {
+//!Homepage/Landing page
+router.get('/', async (req, res) => {
+  try {
+    res.render('homepage');
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+// about us route
+router.get('/aboutus', async (req, res) => {
+  try {
+    res.render('aboutus');
+  } catch (err) {
+    res.status(400).json(err);
+  }
+})
+
+//!Dashboard. Need to add WithAuth
+router.get('/dashboard', withAuth, async (req, res) => {
   //*home page needs your budget, expenses, and incomes
   try {
     const budgetData = await Budget.findAll(); //*TBC
@@ -45,6 +69,7 @@ router.get('/', withAuth, async (req, res) => {
       budgetRev,
       expenseRev,
       incomeRev,
+      loggedIn: true
     });
   } catch (err) {}
 });
@@ -63,4 +88,10 @@ router.get('/edit', withAuth, async (req, res) => {
   } catch (err) {}
 });
 
+<<<<<<< HEAD
 module.exports = router;
+=======
+
+module.exports = router;
+
+>>>>>>> origin

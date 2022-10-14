@@ -1,0 +1,35 @@
+<body class="bg-red-600">
+  <main class="p-[10%]">
+
+    <div class="flex flex-wrap flex-col justify-center h-fit mx-auto pt-5 pb-5 w-[90%] mb-[10%] bg-local visible">
+      <h2 class="font-bold text-[34px] leading-loose mb-5 text-[#FD0D35]">Log in to your account</h2>
+      <!-- This sections is for the two main log in fields -->
+      <section id="main-fields">
+      <!-- Username field -->
+      <input type="text" id="username" class="form-control mb-5 w-full h-42px rounded-md p-2" placeholder="Email address">
+      <!-- Password field -->
+      <input type="text" id="password" class="form-control mb-5 w-full h-42px rounded-md p-2" placeholder="Password">
+      </section>
+
+      <!-- This section will separate the remember-me and forgot password from main fields -->
+      <section class="font-medium grid grid-flow-col grid-cols-{2} text-red-600 leading-8 pb-6 text-[20px]">
+       <!-- Remember me checkbox -->
+        <div>
+        <input type="checkbox" value="remember-me">
+            <label>Remember me</label>
+        </div>
+        <div>
+          <a href="">Forgot password?</a>
+        </div>
+      </section>
+
+      <section id="sign-in" class="flex justify-center">
+        <button type="button" class="font-medium bg-red-600 rounded-md p-2 w-full text-white">Sign in</button>
+      </section>
+    </div>
+    
+
+  </main>
+</body>
+
+<script src="js/login.js"></script>
