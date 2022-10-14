@@ -16,7 +16,7 @@ const sess = {
   secret: 'Super secret secret',
   cookie: {
     // Stored in milliseconds
-    maxAge: 1000 * 60 * 10 , //*expires after 10 minutes // 1000ms * 60 = 60s * 10 = 10min
+    maxAge: 1000 * 60 * 10, //*expires after 10 minutes // 1000ms * 60 = 60s * 10 = 10min
   },
   resave: false,
   saveUninitialized: true,
@@ -38,14 +38,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);
 
-sequelize.sync({ force: true }).then(() => {
+sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () =>
     console.log(
       `\nServer running on port ${PORT}. Visit http://localhost:${PORT} and create an account!`
     )
   );
 });
-
-
-
-

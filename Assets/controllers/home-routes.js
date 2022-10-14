@@ -1,12 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const {
-  Budget,  
-  Expenses,
-  Household,
-  Income,
-  User,
-} = require('../models');
+const { Budget, Expenses, Household, Income, User } = require('../models');
 const withAuth = require('../utils/auth');
 
 //!SignUp
@@ -19,7 +13,9 @@ router.get('/signup', async (req, res) => {
 //!Login
 router.get('/login', async (req, res) => {
   if (req.session.loggedIn) {
-    res.redirect('/dashboard');
+    res.redirect('/dashboard', {
+      loggedIn: req.session.loggedIn,
+    });
     return;
   } else {
     res.render('login');
@@ -38,6 +34,7 @@ router.get('/', async (req, res) => {
 //!Dashboard. Need to add WithAuth
 router.get('/dashboard', withAuth, async (req, res) => {
   //*home page needs your budget, expenses, and incomes
+
   try {
     const budgetData = await Budget.findAll(); //*TBC
 
@@ -57,6 +54,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
     const incomeRev = incomeArr.reverse();
 
     res.render('dashboard', {
+      loggedIn: req.session.loggedIn,
       budgetRev,
       expenseRev,
       incomeRev,
@@ -65,16 +63,22 @@ router.get('/dashboard', withAuth, async (req, res) => {
 });
 
 //!Adding something to budget/income/expense
-router.get('/add', withAuth, async (req, res) => {
+router.get('/add/:type', withAuth, async (req, res) => {
+  console.log(req.params.type);
   try {
-    res.render('add');
+    res.render('add', {
+      loggedIn: req.session.loggedIn,
+      check: req.params.type,
+    });
   } catch (err) {}
 });
 
 //!
 router.get('/edit', withAuth, async (req, res) => {
   try {
-    res.render('edit');
+    res.render('edit', {
+      loggedIn: req.session.loggedIn,
+    });
   } catch (err) {}
 });
 

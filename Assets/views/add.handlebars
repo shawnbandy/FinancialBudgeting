@@ -1,0 +1,105 @@
+<section class='border border-solid border-black mt-6 min-h-screen'>
+  <!--Establishes grid-->
+  <section>
+    <!--Start of budget-->
+    {{#switch check}}
+      {{#case 'budget'}}
+        <section>
+          <!--Start of budget-->
+          <section
+            class='border border-solid border-red-900 text-center bg-blue-600'
+          >
+            <p>This will be the Budget</p>
+            <form class='grid grid-cols-11' id='budgetForm'>
+              <div class='col-span-5'>
+                <h1>Name of Item/budget/idk</h1>
+                <input
+                  type='text'
+                  id='budgetName'
+                  class='form-control mb-5 w-full h-42px rounded-md p-2'
+                  placeholder='E.g., Entertainment'
+                />
+                <!-- Password field -->
+              </div>
+              <div class='col-span-5'>
+                <h1>Amount</h1>
+                <input
+                  type='text'
+                  id='budgetAmount'
+                  class='form-control mb-5 w-full h-42px rounded-md p-2'
+                  placeholder='E.g., 400'
+                />
+              </div>
+              <button class='btn bg-red-400' id='budgetBtn'>Submit</button>
+            </form>
+          </section>
+        </section>
+      {{/case}}
+      {{#case 'expense'}}
+        <section>
+          <!--Start of budget-->
+          <section
+            class='border border-solid border-red-900 text-center bg-blue-600'
+          >
+            <p>This will be the Expenses</p>
+            <form class='grid grid-cols-11' id='expenseForm'>
+              <div class='col-span-5'>
+                <h1>Name of Expense</h1>
+                <input
+                  type='text'
+                  id='expenseName'
+                  class='form-control mb-5 w-full h-42px rounded-md p-2'
+                  placeholder='E.g., Groceries'
+                />
+                <!-- Password field -->
+              </div>
+              <div class='col-span-5'>
+                <h1>Amount</h1>
+                <input
+                  type='text'
+                  id='expenseAmount'
+                  class='form-control mb-5 w-full h-42px rounded-md p-2'
+                  placeholder='E.g., 100'
+                />
+              </div>
+              <button class='btn bg-red-400' id='expenseBtn'>Submit</button>
+            </form>
+          </section>
+        </section>
+      {{/case}}
+      {{#case 'income'}}
+        <!--Start of Income-->
+        <section>
+          <!--Start of budget-->
+          <section
+            class='border border-solid border-red-900 text-center bg-blue-600'
+          >
+            <p>This will be the Budget</p>
+            <form class='grid grid-cols-11' id='incomeForm'>
+              <div class='col-span-5'>
+                <h1>Name of Item/budget/idk</h1>
+                <input
+                  type='text'
+                  id='incomeName'
+                  class='form-control mb-5 w-full h-42px rounded-md p-2'
+                  placeholder='E.g., Entertainment'
+                />
+                <!-- Password field -->
+              </div>
+              <div class='col-span-5'>
+                <h1>Amount</h1>
+                <input
+                  type='text'
+                  id='incomeAmount'
+                  class='form-control mb-5 w-full h-42px rounded-md p-2'
+                  placeholder='E.g., 400'
+                />
+              </div>
+              <button class='btn bg-red-400' id='incomeBtn'>Submit</button>
+            </form>
+          </section>
+        </section>
+      {{/case}}
+    {{/switch}}
+  </section>
+</section>
