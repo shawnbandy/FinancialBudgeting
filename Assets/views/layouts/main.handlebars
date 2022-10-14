@@ -19,7 +19,7 @@
             <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-end">
               <div class="hidden sm:ml-6 sm:block">
                 <div class="flex space-x-4">
-                  {{#if logged_in}}
+                  {{#if loggedIn}}
                   <button class="no-button bg-red-600 p-3 rounded-md" id="logout">Logout</button>
                   <a href="/dashboard" class="bg-red-500 text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Dashboard</a>
 
@@ -28,7 +28,7 @@
                   <a href="/signup" class="bg-red-500 text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Sign Up</a>
 
                   {{/if}}
-                  <a href="#" class="bg-red-500 text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">About Us</a> 
+                  <a href="/aboutus" class="bg-red-500 text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">About Us</a> 
                 </div>
               </div>
             </div>
@@ -58,8 +58,9 @@
     </main>
 
     <!-- if user is logged in, include script for logout js -->
-    {{#if logged_in}}
+    {{#if loggedIn}}
     <script src="js/logout.js"></script>
+
     {{/if}}
     
     
