@@ -66,10 +66,6 @@ router.get('/budget/:id', withAuth, async (req, res) => {
   }
 });
 
-<<<<<<< HEAD
-module.exports = router;
-=======
 
 module.exports = router;
 
->>>>>>> origin
