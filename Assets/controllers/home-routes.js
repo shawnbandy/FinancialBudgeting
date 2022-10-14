@@ -35,6 +35,15 @@ router.get('/', async (req, res) => {
   }
 });
 
+// about us route
+router.get('/aboutus', async (req, res) => {
+  try {
+    res.render('aboutus');
+  } catch (err) {
+    res.status(400).json(err);
+  }
+})
+
 //!Dashboard. Need to add WithAuth
 router.get('/dashboard', withAuth, async (req, res) => {
   //*home page needs your budget, expenses, and incomes
