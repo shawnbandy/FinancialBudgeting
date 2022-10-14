@@ -46,7 +46,7 @@
             class='border border-solid border-red-900 text-center bg-blue-600'
           >
             <p>This will be the Expenses</p>
-            <form class='grid grid-cols-11 form' id='expenseForm'>
+            <form class='grid grid-cols-12 form' id='expenseForm'>
               <div class='col-span-4'>
                 <h1>Name of Expense</h1>
                 <input
@@ -66,11 +66,12 @@
                   placeholder='E.g., 100'
                 />
               </div>
-              <div class='col-span-2'>
+              <div class='col-span-4'>
                 <select name='budget' id='budgetID'>
                   {{#each budgetArr as |budget|}}
                   {{> budget-expense-selection}}
                   {{/each}}
+                  <option>test</option>
                 </select>
               </div>
               <button

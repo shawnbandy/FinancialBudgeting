@@ -77,11 +77,11 @@ router.get('/add/:type', withAuth, async (req, res) => {
   console.log(req.params.type);
 
   try {
-    const budgetData = await Budget.findAll({
-      attributes: ['id', 'name'],
-    });
+    const budgetData = await Budget.findAll({});
 
     const budgetArr = budgetData.map((content) => content.get({ plain: true }));
+
+    console.log(budgetArr);
 
     res.render('add', {
       budgetArr,

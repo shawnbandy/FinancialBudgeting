@@ -22,7 +22,7 @@ const logIn = async (event) => {
     });
 
     if (res.ok) {
-      document.location.replace('/');
+      document.location.replace('/dashboard');
     } else {
       alert('Failed to log in');
     }

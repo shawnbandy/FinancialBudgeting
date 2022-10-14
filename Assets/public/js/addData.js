@@ -41,6 +41,7 @@ const submitData = async (event) => {
           document.location.replace('/dashboard');
         } else {
           alert('Failed to add');
+          console.log(res);
         }
       }
     //*make the API call
@@ -48,7 +49,7 @@ const submitData = async (event) => {
 };
 
 const makeApiCreateRqst = async (type, name, amount, budgetID) => {
-  const res = await fetch(`api/${type}/create`, {
+  const res = await fetch(`/api/${type}/create`, {
     method: 'POST',
     body: JSON.stringify({ name, amount, budgetID }),
     headers: { 'Content-Type': 'application/json' },

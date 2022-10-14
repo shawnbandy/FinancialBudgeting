@@ -6,7 +6,7 @@ router.post('/create', async (req, res) => {
     const newBudget = Budget.create({
       name: req.body.name,
       amount: req.body.amount,
-      household_id: 1,
+      household_id: req.session.householdID,
     });
 
     res.status(200).json(newBudget);
