@@ -69,7 +69,7 @@
             <select name='budget' id='budgetID'>
               <option>test</option>
               {{#each budgetArr as |budget|}}
-                <option>{{budget.name}}</option>
+                <option id={{budget.id}}>{{budget.name}}</option>
               {{/each}}
             </select>
           </div>

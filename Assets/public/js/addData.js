@@ -11,7 +11,6 @@ const submitData = async (event) => {
   const formID = event.target.id;
   const name = document.querySelector('.name').value.trim();
   const amount = document.querySelector('.amount').value.trim();
-  console.log(Number(amount));
 
   if (isNaN(amount)) {
     alert('Please enter a number in the amount form');
@@ -26,25 +25,20 @@ const submitData = async (event) => {
         makeApiCreateRqst(type, name, amount);
       }
       break;
-
     case 'expenseForm':
       type = 'expense';
-      //*need to find a way to add the budget ID here... maybe a selection option on the HTML?
+      //*idea from https://ricardometring.com/
+      const select = document.getElementById('budgetID');
+      const budget_id = select.options[select.selectedIndex].id;
       if (name && amount) {
-        const res = await fetch(`api/${type}/create`, {
-          method: 'POST',
-          body: JSON.stringify({ name, amount }),
-          headers: { 'Content-Type': 'application/json' },
-        });
-
-        if (res.ok) {
-          document.location.replace('/dashboard');
-        } else {
-          alert('Failed to add');
-          console.log(res);
-        }
+        makeApiCreateRqst(type, name, amount, budget_id);
       }
-    //*make the API call
+      break;
+    case 'incomeForm':
+      type = 'income';
+      if (name && amount) {
+        makeApiCreateRqst(type, name, amount);
+      }
   }
 };
 
@@ -59,6 +53,7 @@ const makeApiCreateRqst = async (type, name, amount, parentID) => {
     document.location.replace('/dashboard');
   } else {
     alert('Failed to add');
+    console.log(res);
   }
 };
 

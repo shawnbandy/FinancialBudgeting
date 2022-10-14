@@ -1,9 +1,9 @@
 const router = require('express').Router();
-const { User, Expense, Household, Income } = require('../../models');
+const { User, Expenses, Household, Income } = require('../../models');
 
 router.post('/create', async (req, res) => {
   try {
-    const newExpense = Expense.create({
+    const newExpense = await Expenses.create({
       name: req.body.name,
       amount: req.body.amount,
       budget_id: req.body.budget_id,
@@ -17,7 +17,7 @@ router.post('/create', async (req, res) => {
 
 router.put('/edit/:id', async (req, res) => {
   try {
-    const updateExpense = await Expense.update(
+    const updateExpense = await Expenses.update(
       {
         name: req.body.name,
         amount: req.body.amount,
@@ -36,7 +36,7 @@ router.put('/edit/:id', async (req, res) => {
 
 router.delete('/delete/:id', async (req, res) => {
   try {
-    const deleteExpense = await Expense.destroy({
+    const deleteExpense = await Expenses.destroy({
       where: {
         id: req.params.id,
       },
