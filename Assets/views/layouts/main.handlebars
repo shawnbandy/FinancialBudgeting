@@ -17,24 +17,13 @@
       <div class='mx-auto max-w-7xl px-2 sm:px-6 lg:px-8'>
         <div class='relative flex h-16 items-center justify-between'>
           <h1>Budget Buddy</h1>
-          <div
-            class='absolute inset-y-0 left-0 flex items-center sm:hidden'
-          ></div>
-          <div
-            class='flex flex-1 items-center justify-center sm:items-stretch sm:justify-end'
-          >
-            <div class='hidden sm:ml-6 sm:block'>
-              <div class='flex space-x-4'>
-                {{#if loggedIn}}
-                  <button
-                    class='no-button bg-red-600 p-3 rounded-md'
-                    id='logout'
-                  >Logout</button>
-                  <a
-                    href='/dashboard'
-                    class='bg-red-500 text-white px-3 py-2 rounded-md text-sm font-medium'
-                    aria-current='page'
-                  >Dashboard</a>
+          <div class="absolute inset-y-0 left-0 flex items-center sm:hidden"></div>
+            <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-end">
+              <div class="hidden sm:ml-6 sm:block">
+                <div class="flex space-x-4">
+                  {{#if loggedIn}}
+                  <button class="no-button bg-red-600 p-3 rounded-md" id="logout">Logout</button>
+                  <a href="/dashboard" class="bg-red-500 text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Dashboard</a>
 
                 {{else}}
                   <a
@@ -48,12 +37,9 @@
                     aria-current='page'
                   >Sign Up</a>
 
-                {{/if}}
-                <a
-                  href='#'
-                  class='bg-red-500 text-white px-3 py-2 rounded-md text-sm font-medium'
-                  aria-current='page'
-                >About Us</a>
+                  {{/if}}
+                  <a href="/aboutus" class="bg-red-500 text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">About Us</a> 
+                </div>
               </div>
             </div>
           </div>
@@ -104,7 +90,8 @@
 
     <!-- if user is logged in, include script for logout js -->
     {{#if loggedIn}}
-      <script src='js/logout.js'></script>
+    <script src="js/logout.js"></script>
+
     {{/if}}
 
     <!--tailwind linking-->

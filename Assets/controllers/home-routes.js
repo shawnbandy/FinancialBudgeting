@@ -31,6 +31,15 @@ router.get('/', async (req, res) => {
   }
 });
 
+// about us route
+router.get('/aboutus', async (req, res) => {
+  try {
+    res.render('aboutus');
+  } catch (err) {
+    res.status(400).json(err);
+  }
+})
+
 //!Dashboard. Need to add WithAuth
 router.get('/dashboard', withAuth, async (req, res) => {
   //*home page needs your budget, expenses, and incomes
@@ -58,6 +67,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
       budgetRev,
       expenseRev,
       incomeRev,
+      loggedIn: true
     });
   } catch (err) {}
 });
@@ -82,4 +92,6 @@ router.get('/edit', withAuth, async (req, res) => {
   } catch (err) {}
 });
 
+
 module.exports = router;
+
