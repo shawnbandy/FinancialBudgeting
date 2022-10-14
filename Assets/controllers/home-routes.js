@@ -62,3 +62,5 @@ router.get('/edit', withAuth, async (req, res) => {
     res.render('edit');
   } catch (err) {}
 });
+
+module.exports = router;
