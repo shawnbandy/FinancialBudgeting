@@ -36,7 +36,7 @@ router.get('/', async (req, res) => {
 });
 
 //!Dashboard. Need to add WithAuth
-router.get('/dashboard', async (req, res) => {
+router.get('/dashboard', withAuth, async (req, res) => {
   //*home page needs your budget, expenses, and incomes
   try {
     const budgetData = await Budget.findAll(); //*TBC
@@ -60,6 +60,7 @@ router.get('/dashboard', async (req, res) => {
       budgetRev,
       expenseRev,
       incomeRev,
+      loggedIn: true
     });
   } catch (err) {}
 });
