@@ -1,23 +1,23 @@
 const router = require('express').Router();
-const { User, Expense, Household, Income } = require('../../models');
+const { User, Expense, Household, Income, Budget } = require('../../models');
 
 router.post('/create', async (req, res) => {
   try {
-    const newExpense = Expense.create({
+    const newBudget = Budget.create({
       name: req.body.name,
       amount: req.body.amount,
-      budget_id: req.body.budget_id,
+      household_id: 1,
     });
 
-    res.status(200).json(newExpense);
+    res.status(200).json(newBudget);
   } catch (err) {
-    res.status(404).json({ message: 'Unable to create a new expense. ' + err });
+    res.status(404).json({ message: 'Unable to create a new Budget. ' + err });
   }
 });
 
 router.put('/edit/:id', async (req, res) => {
   try {
-    const updateExpense = await Expense.update(
+    const updateBudget = await Budget.update(
       {
         name: req.body.name,
         amount: req.body.amount,
@@ -28,15 +28,15 @@ router.put('/edit/:id', async (req, res) => {
         },
       }
     );
-    res.status(200).json(updateExpense);
+    res.status(200).json(updateBudget);
   } catch (err) {
-    res.status(404).json({ message: 'Unable to create a new expense. ' + err });
+    res.status(404).json({ message: 'Unable to create a new Budget. ' + err });
   }
 });
 
 router.delete('/delete/:id', async (req, res) => {
   try {
-    const deleteExpense = await Expense.destroy({
+    const deleteBudget = await Budget.destroy({
       where: {
         id: req.params.id,
       },

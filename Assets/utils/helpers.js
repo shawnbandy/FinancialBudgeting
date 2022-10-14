@@ -1,13 +1,5 @@
+//*I totally copied/pasted these switch/case functions from StackOverflow
 module.exports = {
-  budgetCheck: (type) => {
-    return type === 'budget' ? true : false;
-  },
-  expenseCheck: (type) => {
-    return type === 'expense' ? true : false;
-  },
-  incomeCheck: (type) => {
-    return type === 'income' ? true : false;
-  },
   switch: (value, options) => {
     this.switch_value = value;
     return options.fn(this);

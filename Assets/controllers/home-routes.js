@@ -38,7 +38,7 @@ router.get('/aboutus', async (req, res) => {
   } catch (err) {
     res.status(400).json(err);
   }
-})
+});
 
 //!Dashboard. Need to add WithAuth
 router.get('/dashboard', withAuth, async (req, res) => {
@@ -67,7 +67,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
       budgetRev,
       expenseRev,
       incomeRev,
-      loggedIn: true
+      loggedIn: true,
     });
   } catch (err) {}
 });
@@ -75,8 +75,16 @@ router.get('/dashboard', withAuth, async (req, res) => {
 //!Adding something to budget/income/expense
 router.get('/add/:type', withAuth, async (req, res) => {
   console.log(req.params.type);
+
   try {
+    const budgetData = await Budget.findAll({
+      attributes: ['id', 'name'],
+    });
+
+    const budgetArr = budgetData.map((content) => content.get({ plain: true }));
+
     res.render('add', {
+      budgetArr,
       loggedIn: req.session.loggedIn,
       check: req.params.type,
     });
@@ -92,6 +100,4 @@ router.get('/edit', withAuth, async (req, res) => {
   } catch (err) {}
 });
 
-
 module.exports = router;
-
