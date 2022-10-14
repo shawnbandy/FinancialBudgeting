@@ -5,28 +5,14 @@ const { User } = require('../../models');
 // Creating the user
 router.post('/', async (req, res) => {
   console.log('reached');
-  try {
-    //*checks to see if the user's username is unique, else it doesn't let them create it
-    const attemptedUsername = req.body.username;
-    const allUsers = await User.findAll();
-    const allUsernames = await allUsers.map((username) =>
-      username.get({ plain: true })
-    );
-
-    for (let i = 0; i < allUsernames.length; i++) {
-      if (attemptedUsername == allUsernames[i].username) {
-        res.status(500).json({ message: 'Someone already has that username' });
-        return;
-      }
-    }
-
+  try {  
     const newUser = await User.create({
-      username: req.body.username,
+      username: req.body.email,
       password: req.body.password,
     });
     req.session.save(() => {
       req.session.userId = newUser.id; //!
-      req.session.username = newUser.username; //!
+      req.session.email = newUser.email; //!
       req.session.loggedIn = true;
       res.json(newUser);
     });
@@ -41,7 +27,7 @@ router.post('/login', async (req, res) => {
   try {
     const user = await User.findOne({
       where: {
-        username: req.body.username,
+        username: req.body.email,
       },
     });
     if (!user) {
@@ -55,7 +41,7 @@ router.post('/login', async (req, res) => {
     }
     req.session.save(() => {
       req.session.userId = user.id;
-      req.session.username = user.username;
+      req.session.email = user.email;
       req.session.loggedIn = true;
       res.json({ user, message: 'You are now logged in' });
     });
