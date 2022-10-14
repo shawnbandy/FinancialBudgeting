@@ -11,22 +11,19 @@ const signUp = async (event) => {
     return;
   } else {
     console.log('readhed');
-    event.preventDefault();
+    event.preventDefault();    
 
-    const firstName = document.querySelector('#first-name').value.trim();
-    const lastName = document.querySelector('#last-name').value.trim();
-
-    const username = firstName + lastName;
+    const email = document.querySelector('#email').value.trim();
     const password = document.querySelector('#password-login').value.trim();
 
-    console.log(password);
-    console.log(username);
+    
+    
 
-    if (username && password) {
+    if (email && password) {
       console.log('inside if');
       const reso = await fetch('/api/user/', {
         method: 'POST',
-        body: JSON.stringify({ username, password }),
+        body: JSON.stringify({ email, password }),
         headers: { 'Content-Type': 'application/json' },
       });
 
