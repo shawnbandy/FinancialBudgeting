@@ -3,18 +3,17 @@ const { User, Expense, Household, Income } = require('../../models');
 
 router.post('/create', async (req, res) => {
   console.log('hh reached');
-  console.log(req.session.userId);
   try {
-    const newHousehold = Household.create({
+    const newHousehold = await Household.create({
       name: req.body.name,
       user_id: req.session.userId,
     });
 
-    console.log('hh reached2');
+    console.log(newHousehold.id);
 
-    res.status(200).json(newHousehold);
     req.session.save(() => {
       req.session.householdID = newHousehold.id;
+      res.status(200).json(newHousehold);
     });
   } catch (err) {
     res

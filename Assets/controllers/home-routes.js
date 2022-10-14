@@ -75,6 +75,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
 //!Adding something to budget/income/expense
 router.get('/add/:type', withAuth, async (req, res) => {
   console.log(req.params.type);
+  console.log('+++++' + req.session.username);
 
   try {
     const budgetData = await Budget.findAll({});
@@ -82,13 +83,17 @@ router.get('/add/:type', withAuth, async (req, res) => {
     const budgetArr = budgetData.map((content) => content.get({ plain: true }));
 
     console.log(budgetArr);
+    console.log('-----------' + req.session.householdID);
 
     res.render('add', {
       budgetArr,
+      householdID: req.session.householdID,
       loggedIn: req.session.loggedIn,
       check: req.params.type,
     });
-  } catch (err) {}
+  } catch (err) {
+    console.log(err);
+  }
 });
 
 //!

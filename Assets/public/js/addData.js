@@ -48,10 +48,10 @@ const submitData = async (event) => {
   }
 };
 
-const makeApiCreateRqst = async (type, name, amount, budgetID) => {
+const makeApiCreateRqst = async (type, name, amount, parentID) => {
   const res = await fetch(`/api/${type}/create`, {
     method: 'POST',
-    body: JSON.stringify({ name, amount, budgetID }),
+    body: JSON.stringify({ name, amount, parentID }),
     headers: { 'Content-Type': 'application/json' },
   });
 

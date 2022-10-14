@@ -3,7 +3,7 @@ const { User, Expense, Household, Income, Budget } = require('../../models');
 
 router.post('/create', async (req, res) => {
   try {
-    const newBudget = Budget.create({
+    const newBudget = await Budget.create({
       name: req.body.name,
       amount: req.body.amount,
       household_id: req.session.householdID,
