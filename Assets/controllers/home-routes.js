@@ -75,18 +75,44 @@ router.get('/dashboard', withAuth, async (req, res) => {
 //!Adding something to budget/income/expense
 router.get('/add/:type', withAuth, async (req, res) => {
   console.log(req.params.type);
-  console.log('+++++' + req.session.username);
+  let budgetOption;
+  let expenseOption;
+  let incomeOption;
+
+  //*ugly, but necessary because I can't use a switch case in handlebars, but I can use a nested if
+  switch (req.params.type) {
+    case 'budget':
+      budgetOption = true;
+      expenseOption = false;
+      incomeOption = false;
+      break;
+    case 'expense':
+      budgetOption = false;
+      expenseOption = true;
+      incomeOption = false;
+      break;
+    case 'income':
+      budgetOption = false;
+      expenseOption = false;
+      incomeOption = true;
+      break;
+  }
 
   try {
-    const budgetData = await Budget.findAll({});
+    const budgetData = await Budget.findAll({
+      where: {
+        household_id: req.session.householdID,
+      },
+    });
 
     const budgetArr = budgetData.map((content) => content.get({ plain: true }));
-
     console.log(budgetArr);
-    console.log('-----------' + req.session.householdID);
 
     res.render('add', {
       budgetArr,
+      budgetOption,
+      incomeOption,
+      expenseOption,
       householdID: req.session.householdID,
       loggedIn: req.session.loggedIn,
       check: req.params.type,
