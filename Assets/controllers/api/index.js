@@ -9,7 +9,7 @@ const hhRoutes = require('./household-route');
 const userRoutes = require('./userRoutes');
 
 router.use('/income', incomeRoutes);
-router.use('/expenses', expenseRoutes);
+router.use('/expense', expenseRoutes);
 router.use('/user', userRoutes);
 router.use('/budget', budgetRoutes);
 router.use('/household', hhRoutes);
