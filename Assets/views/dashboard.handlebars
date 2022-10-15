@@ -11,6 +11,9 @@
         {{> budget-dashboard}}
         {{/each}}
       </div>
+      <div>
+        <button class="btn btn-red bg-white" id="budgetAdd" data-type="1">Add</button>
+      </div>
     </section>
     <section class='border border-solid border-green-900 text-center'>
       <!--Start of Expenses-->
@@ -21,6 +24,7 @@
           {{> expense-dashboard}}
           {{/each}}
         </div>
+        <button class="btn btn-red bg-white" id="expenseAdd" dataType="2">Add</button>
       </section>
       <!--Start of Income-->
       <section class='border border-solid border-orange-900 text-center'>
@@ -30,7 +34,10 @@
           {{> income-dashboard}}
           {{/each}}
         </div>
+        <button class="btn btn-red bg-white" id="incomeAdd" dataType="3">Add</button>
       </section>
     </section>
   </section>
 </section>
+
+<script src="./js/add.js"></script>
