@@ -19,8 +19,9 @@ class User extends Model {
         username: {
           type: DataTypes.STRING,
           allowNull: false,
+          unique: true,
           validate: {
-            isAlphanumeric: true
+            isEmail: true,          
             },
         },
         password: {
@@ -28,8 +29,8 @@ class User extends Model {
           allowNull: false,
           validate: {
               len: [4]
-            }
-        }
+            },
+        },
 
     },
     {
