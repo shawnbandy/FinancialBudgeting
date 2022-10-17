@@ -12,14 +12,7 @@ router.get('/signup', async (req, res) => {
 
 //!Login
 router.get('/login', async (req, res) => {
-  if (req.session.loggedIn) {
-    res.redirect('/dashboard', {
-      loggedIn: req.session.loggedIn,
-    });
-    return;
-  } else {
-    res.render('login');
-  }
+  res.render('login');
 });
 
 //!Homepage/Landing page
@@ -45,13 +38,16 @@ router.get('/dashboard', withAuth, async (req, res) => {
   //*home page needs your budget, expenses, and incomes
 
   try {
-    const budgetData = await Budget.findAll(); //*TBC
-
+    const budgetData = await Budget.findAll({
+      where: householdID,
+    });
     const budgetArr = budgetData.map((content) => content.get({ plain: true }));
     const budgetRev = budgetArr.reverse();
 
     //*this gets all of our expenses in plain data, then reverses it so the most recent expenses are first
-    const expenseData = await Expenses.findAll({});
+    const expenseData = await Expenses.findAll({
+      where: userID,
+    });
     const expenseArr = expenseData.map((content) =>
       content.get({ plain: true })
     );

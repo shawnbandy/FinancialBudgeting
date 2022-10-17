@@ -11,13 +11,10 @@ const signUp = async (event) => {
     return;
   } else {
     console.log('readhed');
-    event.preventDefault();    
+    event.preventDefault();
 
     const email = document.querySelector('#email').value.trim();
     const password = document.querySelector('#password-login').value.trim();
-
-    
-    
 
     if (email && password) {
       console.log('inside if');
@@ -30,7 +27,7 @@ const signUp = async (event) => {
       console.log(reso);
 
       if (reso.ok) {
-        document.location.replace('/dashboard'); //!will change this after the FE is developed
+        document.location.replace('/gettingStarted'); //!will change this after the FE is developed
       } else {
         alert('Failed to sign up');
       }
