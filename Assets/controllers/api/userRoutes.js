@@ -27,11 +27,11 @@ router.post('/login', async (req, res) => {
   try {
     const user = await User.findOne({
       where: {
-        username: req.body.username,
+        username: req.body.email,
       },
     });
     if (!user) {
-      res.status(400).json({ message: 'Invalid username' });
+      res.status(400).json({ message: 'Invalid email address' });
       return;
     }
     const validPassword = user.checkPassword(req.body.password);
@@ -41,7 +41,7 @@ router.post('/login', async (req, res) => {
     }
     req.session.save(() => {
       req.session.userId = user.id;
-      req.session.username = user.username;
+      req.session.username = user.email;
       req.session.loggedIn = true;
       res.json({ user, message: 'You are now logged in' });
     });
