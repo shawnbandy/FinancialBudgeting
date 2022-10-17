@@ -21,6 +21,9 @@
             <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-end">
               <div class="hidden sm:ml-6 sm:block">
                 <div class="flex space-x-4">
+                
+                  <a href="/aboutus" class="bg-red-500 text-white px-3 py-2 rounded-md text-sm font-medium ml-10" aria-current="page">About Us</a> 
+
                   {{#if loggedIn}}
                   <button class="no-button bg-red-600 p-3 rounded-md" id="logout">Logout</button>
                   <a href="/dashboard" class="bg-red-500 text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Dashboard</a>
@@ -39,7 +42,6 @@
                   >Sign Up</a>
 
                   {{/if}}
-                  <a href="/aboutus" class="bg-red-500 text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">About Us</a> 
                 </div>
               </div>
             </div>
@@ -61,6 +63,10 @@
               class='bg-red-500 text-white px-3 py-2 rounded-md text-sm font-medium'
               aria-current='page'
             >Dashboard</a>
+            <button 
+              class="bg-red-500 text-white px-3 py-2 rounded-md text-sm font-medium" 
+              aria-current="page" 
+              id="houseHoldAddBtn">Add your Household</a>
 
           {{else}}
             <a
