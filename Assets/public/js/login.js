@@ -9,15 +9,15 @@ const passwordField = document.querySelector('#password');
 const logIn = async (event) => {
   event.preventDefault();
 
-  const email = emailField.value;
+  const username = emailField.value;
   const password = passwordField.value;
 
-  console.log(`${email} and the ${password}`);
+  console.log(`${username} and the ${password}`);
 
-  if (email && password) {
+  if (username && password) {
     const res = await fetch('/api/user/login', {
       method: 'POST',
-      body: JSON.stringify({ email, password }),
+      body: JSON.stringify({ username, password }),
       headers: { 'Content-Type': 'application/json' },
     });
 
