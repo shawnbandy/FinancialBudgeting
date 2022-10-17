@@ -16,7 +16,7 @@ router.get('/income', withAuth, async (req, res) => {
     const incomeData = await Income.findAll({});
     const incomeArr = incomeData.map((content) => content.get({ plain: true }));
     const incomeRev = incomeArr.reverse();
-
+c
     res.render('viewAll', {
       incomeRev, //!
     });
