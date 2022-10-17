@@ -7,12 +7,12 @@ router.post('/', async (req, res) => {
   console.log('reached');
   try {
     const newUser = await User.create({
-      username: req.body.email,
+      username: req.body.username,
       password: req.body.password,
     });
     req.session.save(() => {
       req.session.userId = newUser.id; //!
-      req.session.email = newUser.email; //!
+      req.session.username = newUser.username; //!
       req.session.loggedIn = true;
       res.json(newUser);
     });
@@ -27,26 +27,26 @@ router.post('/login', async (req, res) => {
   try {
     const user = await User.findOne({
       where: {
-        username: req.body.email,
+        username: req.body.username,
       },
     });
     if (!user) {
-      res.status(400).json({ message: 'Invalid username or password' });
+      res.status(400).json({ message: 'Invalid username' });
       return;
     }
     const validPassword = user.checkPassword(req.body.password);
     if (!validPassword) {
-      res.status(400).json({ message: 'Invalid username or password' });
+      res.status(400).json({ message: 'Invalid password' });
       return;
     }
     req.session.save(() => {
       req.session.userId = user.id;
-      req.session.email = user.email;
+      req.session.username = user.username;
       req.session.loggedIn = true;
       res.json({ user, message: 'You are now logged in' });
     });
   } catch (err) {
-    res.status(400).json({ message: 'Invalid username or password' });
+    res.status(400).json({ message: 'Oops! Something went wrong!' });
   }
 });
 
