@@ -1,6 +1,7 @@
-# Application Name
+# Budget Buddy
 
 ## Description
+Budget Buddy is a hands-on and easy-to-use money management web application. The app allows its users to view and manage their finances in one place. This full-stack web application was built using the MVC paradigm, handlebars.js and tailwind as the front-end template, and 
 
 ### Dependencies
     1. Bcrypt
