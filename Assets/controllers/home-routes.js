@@ -38,16 +38,12 @@ router.get('/dashboard', withAuth, async (req, res) => {
   //*home page needs your budget, expenses, and incomes
 
   try {
-    const budgetData = await Budget.findAll({
-      where: householdID,
-    });
+    const budgetData = await Budget.findAll({});
     const budgetArr = budgetData.map((content) => content.get({ plain: true }));
     const budgetRev = budgetArr.reverse();
 
     //*this gets all of our expenses in plain data, then reverses it so the most recent expenses are first
-    const expenseData = await Expenses.findAll({
-      where: userID,
-    });
+    const expenseData = await Expenses.findAll({});
     const expenseArr = expenseData.map((content) =>
       content.get({ plain: true })
     );

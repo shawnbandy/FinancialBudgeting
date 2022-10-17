@@ -12,9 +12,10 @@ router.post('/', async (req, res) => {
     });
     console.log(newUser);
     req.session.save(() => {
+      req.session.loggedIn = true;
       req.session.userId = newUser.id; //!
       req.session.email = newUser.email; //!
-      req.session.loggedIn = true;
+
       res.json(newUser);
     });
   } catch (err) {
