@@ -1,27 +1,32 @@
-<section class='border border-solid border-black mt-6 min-h-screen'>
+<section class='mt-6 min-h-screen'>
   <!--Establishes grid-->
   <section>
     <!--Start of budget-->
     <section>
       <!--Start of budget-->
       {{#if budgetOption}}
+      <a 
+        href="/dashboard"
+        class="bg-red-500 rounded-md text-white font-medium mx-4 my-2 py-1.5 px-2"
+        aria-current='page'
+      >Back</a>
       <section
-        class='border border-solid border-red-900 text-center bg-blue-600'
+        class='text-center bg-white rounded-md m-4 p-3'
       >
-        <p>This will be the Budget. Household id is ?</p>
-        <form class='grid grid-cols-11 form' id='budgetForm'>
+        <h1 class="text-red-500 text-3xl font-semibold">Budget. Household id is ?</h1>
+        <form class='grid grid-cols-11 form space-x-2 mt-3' id='budgetForm'>
           <div class='col-span-5'>
-            <h1>Name of Item/budget/idk</h1>
+            <h1 class="font-medium text-xl">Budget Category</h1>
             <input
               type='text'
               id='budgetName'
-              class='form-control mb-5 w-full h-42px rounded-md p-2 name'
+              class='form-control mb-5 w-full h-42px rounded-md p-2 name border-red-500'
               placeholder='E.g., Entertainment'
             />
             <!-- Password field -->
           </div>
           <div class='col-span-5'>
-            <h1>Amount</h1>
+            <h1 class="font-medium text-xl">Amount</h1>
             <input
               type='text'
               id='budgetAmount'
@@ -30,7 +35,7 @@
             />
           </div>
           <button
-            class='btn bg-red-400'
+            class='btn bg-red-400 m-2 rounded-md text-white font-medium'
             type='submit'
             id='budgetBtn'
           >Submit</button>
@@ -41,13 +46,18 @@
       {{#if expenseOption}}
     <section>
       <!--Start of Expense-->
+      <a 
+        href="/dashboard"
+        class="bg-red-500 rounded-md text-white font-medium mx-4 my-2 py-1.5 px-2"
+        aria-current='page'
+      >Back</a>
       <section
-        class='border border-solid border-red-900 text-center bg-blue-600'
+        class='text-center bg-white rounded-md m-4 p-3'
       >
-        <p>This will be the Expenses</p>
-        <form class='grid grid-cols-12 form' id='expenseForm'>
+        <h1 class="text-red-500 text-3xl font-semibold">Expenses</h1>
+        <form class='grid grid-cols-12 form space-x-2 mt-3' id='expenseForm'>
           <div class='col-span-4'>
-            <h1>Name of Expense</h1>
+            <h1 class="font-medium text-xl">Name of Expense</h1>
             <input
               type='text'
               id='expenseName'
@@ -57,7 +67,7 @@
             <!-- Password field -->
           </div>
           <div class='col-span-4'>
-            <h1>Amount</h1>
+            <h1 class="font-medium text-xl">Amount</h1>
             <input
               type='text'
               id='expenseAmount'
@@ -66,7 +76,8 @@
             />
           </div>
           <div class='col-span-4'>
-            <select name='budget' id='budgetID'>
+            <h1 class="font-medium text-lg">Choose Budget Category</h1>
+            <select class="m-1.5 p-1.5" name='budget' id='budgetID'>
               <option>test</option>
               {{#each budgetArr as |budget|}}
                 <option id={{budget.id}}>{{budget.name}}</option>
@@ -74,7 +85,7 @@
             </select>
           </div>
           <button
-            class='btn bg-red-400'
+            class='btn bg-red-400 m-2 rounded-md text-white font-medium'
             type='submit'
             id='expenseBtn'
           >Submit</button>
@@ -84,31 +95,36 @@
     {{else}}
     <!--Start of Income-->
     <section>
+      <a 
+        href="/dashboard"
+        class="bg-red-500 rounded-md text-white font-medium mx-4 my-2 py-1.5 px-2"
+        aria-current='page'
+      >Back</a>
       <section
-        class='border border-solid border-red-900 text-center bg-blue-600'
+        class='text-center bg-white rounded-md m-4 p-3'
       >
-        <p>This will be the Income</p>
-        <form class='grid grid-cols-11 form' id='incomeForm'>
+        <h1 class="text-red-500 text-3xl font-semibold">Income</h1>
+        <form class='grid grid-cols-11 form space-x-2 mt-3' id='incomeForm'>
           <div class='col-span-5'>
-            <h1>Name of Item/budget/idk</h1>
+            <h1 class="font-medium text-xl">Source of Income</h1>
             <input
               type='text'
               id='incomeName'
               class='form-control mb-5 w-full h-42px rounded-md p-2 name'
-              placeholder='E.g., Entertainment'
+              placeholder='E.g., Building fence for the Smiths'
             />
           </div>
           <div class='col-span-5'>
-            <h1>Amount</h1>
+            <h1 class="font-medium text-xl">Amount</h1>
             <input
               type='text'
               id='incomeAmount'
               class='form-control mb-5 w-full h-42px rounded-md p-2 amount'
-              placeholder='E.g., 400'
+              placeholder='E.g., 1000'
             />
           </div>
           <button
-            class='btn bg-red-400'
+            class='btn bg-red-400 m-2 rounded-md text-white font-medium'
             type='submit'
             id='incomeBtn'
           >Submit</button>
