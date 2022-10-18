@@ -12,7 +12,14 @@ router.get('/signup', async (req, res) => {
 
 //!Login
 router.get('/login', async (req, res) => {
-  res.render('login');
+  if (req.session.loggedIn) {
+    res.redirect('/dashboard', {
+      loggedIn: req.session.loggedIn,
+    });
+    return;
+  } else {
+    res.render('login');
+  }
 });
 
 //!Homepage/Landing page
