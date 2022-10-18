@@ -31,6 +31,14 @@ router.get('/', async (req, res) => {
   }
 });
 
+router.get('/gettingStarted', async (req, res) => {
+  try {
+    res.render('gettingStarted');
+  } catch (err) {
+    console.log(err);
+  }
+});
+
 // about us route
 router.get('/aboutus', async (req, res) => {
   try {
@@ -45,8 +53,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
   //*home page needs your budget, expenses, and incomes
 
   try {
-    const budgetData = await Budget.findAll(); //*TBC
-
+    const budgetData = await Budget.findAll({});
     const budgetArr = budgetData.map((content) => content.get({ plain: true }));
     const budgetRev = budgetArr.reverse();
 
