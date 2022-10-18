@@ -2,6 +2,8 @@ const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Budget, Expenses, Household, Income, User } = require('../models');
 const withAuth = require('../utils/auth');
+const calc = require('precise-calculator');
+const { json } = require('express');
 
 //!SignUp
 router.get('/signup', async (req, res) => {
@@ -70,8 +72,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
     const expenseArr = expenseData.map((content) =>
       content.get({ plain: true })
     );
-    const expenseRev = expenseArr.reverse();
-    console.log(`---------expenseData \n${expenseArr}`);
+    const expenseRev = displayFive(expenseArr.reverse());
 
     //*this gets all of our incomes in plain data, then reverses it so the most recent incomes are first
     const incomeData = await Income.findAll({
@@ -80,8 +81,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
       },
     });
     const incomeArr = incomeData.map((content) => content.get({ plain: true }));
-    const incomeRev = incomeArr.reverse();
-    console.log(`---------incomeData \n${expenseArr}`);
+    const incomeRev = displayFive(incomeArr.reverse());
 
     res.render('dashboard', {
       loggedIn: req.session.loggedIn,
@@ -143,8 +143,19 @@ router.get('/viewAll/:type', withAuth, async (req, res) => {
       where: {
         household_id: req.session.householdID,
       },
+      include: [
+        {
+          model: Expenses,
+        },
+      ],
     });
+
     const budgetArr = budgetData.map((content) => content.get({ plain: true }));
+    const budgetLeft = totalBudgetExpenses(budgetArr);
+    for (let i = 0; i < budgetArr.length; i++) {
+      budgetArr[i].budgetLeftover = budgetLeft[i];
+    }
+    console.log(budgetArr);
 
     const expenseData = await Expenses.findAll({
       where: {
@@ -159,7 +170,6 @@ router.get('/viewAll/:type', withAuth, async (req, res) => {
     const expenseArr = expenseData.map((content) =>
       content.get({ plain: true })
     );
-    console.log(expenseArr);
 
     const incomeData = await Income.findAll({
       where: {
@@ -168,8 +178,10 @@ router.get('/viewAll/:type', withAuth, async (req, res) => {
     });
     const incomeArr = incomeData.map((content) => content.get({ plain: true }));
 
+    console.log(budgetLeft);
     res.render('viewAll', {
       budgetArr,
+      budgetLeft,
       expenseArr,
       incomeArr,
       budgetOption,
@@ -216,6 +228,35 @@ const budOrExOrIn = (parameter) => {
   }
   const results = [budgetOption, expenseOption, incomeOption];
   return results;
+};
+
+const displayFive = (array) => {
+  let newArray = [];
+  if (array.length > 5) {
+    for (let i = 0; i < 5; i++) {
+      newArray.push(array[i]);
+    }
+    return newArray;
+  } else {
+    return array;
+  }
+};
+
+//*this function inputs a budget array, gets the budget amount, and then subtracts all relevant expenses for each budget category
+const totalBudgetExpenses = (array) => {
+  newArray = [];
+  let sum = 0;
+  for (let i = 0; i < array.length; i++) {
+    newArray.push(array[i].amount);
+
+    for (let j = 0; j < array[i].expenses.length; j++) {
+      sum = calc(sum).add(array[i].expenses[j].amount);
+    }
+
+    newArray[i] = calc(newArray[i]).sub(sum);
+    sum = 0;
+  }
+  return newArray;
 };
 
 module.exports = router;
