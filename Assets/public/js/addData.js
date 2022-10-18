@@ -30,6 +30,7 @@ const submitData = async (event) => {
       //*idea from https://ricardometring.com/
       const select = document.getElementById('budgetID');
       const budget_id = select.options[select.selectedIndex].id;
+      console.log(budget_id);
       if (name && amount) {
         makeApiCreateRqst(type, name, amount, budget_id);
       }

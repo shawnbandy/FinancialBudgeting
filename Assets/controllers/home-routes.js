@@ -150,19 +150,23 @@ router.get('/viewAll/:type', withAuth, async (req, res) => {
       where: {
         household_id: req.session.householdID,
       },
+      include: [
+        {
+          model: Budget,
+        },
+      ],
     });
     const expenseArr = expenseData.map((content) =>
       content.get({ plain: true })
     );
+    console.log(expenseArr);
 
     const incomeData = await Income.findAll({
       where: {
         household_id: req.session.householdID,
       },
     });
-    console.log(incomeData);
     const incomeArr = incomeData.map((content) => content.get({ plain: true }));
-    console.log(incomeArr);
 
     res.render('viewAll', {
       budgetArr,

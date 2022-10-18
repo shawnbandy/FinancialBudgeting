@@ -46,10 +46,11 @@ sequelize.sync({ force: false }).then(() => {
   );
 });
 
-//!current issues: need to separate budget to be able to find it by the user... maybe have to get rid of household?
-//!way around this is to make sure that the user creates a household on user creation?
-//!need to have a display of the household and be able to select between them if we keep it
-//TODO: have to have another package for the requirements. maybe the math one?
+// // TODO: have to have another package for the requirements. maybe the math one?
 //TODO: have an edit and delete part for all things on the dashboard
 //TODO: have a getting started page to have a form
-//TODO: viewAll page
+// // TODO: viewAll page
+
+//TODO IF TIME:
+//*way around this is to make sure that the user creates a household on user creation?
+//*need to have a display of the household and be able to select between them if we keep it
