@@ -1,18 +1,18 @@
-
 {
-    "dependencies": {
-        "bcrypt": "^5.0.1",
-        "connect-session-sequelize": "^7.1.5",
-        "dotenv": "^16.0.3",
-        "express": "^4.18.1",
-        "express-handlebars": "^6.0.6",
-        "express-session": "^1.17.3",
-        "handlebars": "^4.7.7",
-        "mysql2": "^2.3.3",
-        "nodemon": "^2.0.20"
-      },
-    "scripts": {
-      "start": "node Assets/server.js",
-      "seed": "node Assets/seeds/index.js"
-    }
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "connect-session-sequelize": "^7.1.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.1",
+    "express-handlebars": "^6.0.6",
+    "express-session": "^1.17.3",
+    "handlebars": "^4.7.7",
+    "mysql2": "^2.3.3",
+    "nodemon": "^2.0.20",
+    "precise-calculator": "^3.0.7"
+  },
+  "scripts": {
+    "start": "node Assets/server.js",
+    "seed": "node Assets/seeds/index.js"
+  }
 }

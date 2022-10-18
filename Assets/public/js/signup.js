@@ -27,7 +27,7 @@ const signUp = async (event) => {
       console.log(reso);
 
       if (reso.ok) {
-        document.location.replace('/gettingStarted'); //!will change this after the FE is developed
+        document.location.replace('/dashboard'); //!will change this after the FE is developed
       } else {
         alert('Failed to sign up');
       }
