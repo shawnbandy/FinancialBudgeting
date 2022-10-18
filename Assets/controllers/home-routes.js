@@ -18,12 +18,16 @@ router.get('/signup', async (req, res) => {
 
 //!Login
 router.get('/login', async (req, res) => {
+<<<<<<< HEAD
   if (req.session.loggedIn) {
     res.redirect('/dashboard');
     return;
   } else {
     res.render('login');
   }
+=======
+  res.render('login');
+>>>>>>> da6224a81e2b6223ac3671debc22226622e3ed2e
 });
 
 //!Homepage/Landing page
@@ -48,8 +52,7 @@ router.get('/aboutus', async (req, res) => {
 router.get('/dashboard', withAuth, async (req, res) => {
   //*home page needs your budget, expenses, and incomes
   try {
-    const budgetData = await Budget.findAll(); //*TBC
-
+    const budgetData = await Budget.findAll({});
     const budgetArr = budgetData.map((content) => content.get({ plain: true }));
     const budgetRev = budgetArr.reverse();
 

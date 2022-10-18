@@ -10,10 +10,12 @@ router.post('/', async (req, res) => {
       username: req.body.email,
       password: req.body.password,
     });
+    console.log(newUser);
     req.session.save(() => {
+      req.session.loggedIn = true;
       req.session.userId = newUser.id; //!
       req.session.email = newUser.email; //!
-      req.session.loggedIn = true;
+
       res.json(newUser);
     });
   } catch (err) {
@@ -62,4 +64,3 @@ router.post('/logout', (req, res) => {
 });
 
 module.exports = router;
-
