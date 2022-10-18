@@ -25,12 +25,9 @@ const sess = {
   }),
 };
 
-<<<<<<< HEAD
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
-=======
->>>>>>> da6224a81e2b6223ac3671debc22226622e3ed2e
 app.use(session(sess));
 app.use(routes);
 
@@ -40,17 +37,7 @@ const hbs = exphbs.create({ helpers });
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
-<<<<<<< HEAD
 sequelize.sync({ force: true }).then(() => {
-=======
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')));
-
-app.use(routes);
-
-sequelize.sync({ force: false }).then(() => {
->>>>>>> da6224a81e2b6223ac3671debc22226622e3ed2e
   app.listen(PORT, () =>
     console.log(
       `\nServer running on port ${PORT}. Visit http://localhost:${PORT} and create an account!`
