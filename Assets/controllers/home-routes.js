@@ -82,28 +82,12 @@ router.get('/dashboard', withAuth, async (req, res) => {
 //!Adding something to budget/income/expense
 router.get('/add/:type', withAuth, async (req, res) => {
   console.log(req.params.type);
-  let budgetOption;
-  let expenseOption;
-  let incomeOption;
 
-  //*ugly, but necessary because I can't use a switch case in handlebars, but I can use a nested if
-  switch (req.params.type) {
-    case 'budget':
-      budgetOption = true;
-      expenseOption = false;
-      incomeOption = false;
-      break;
-    case 'expense':
-      budgetOption = false;
-      expenseOption = true;
-      incomeOption = false;
-      break;
-    case 'income':
-      budgetOption = false;
-      expenseOption = false;
-      incomeOption = true;
-      break;
-  }
+  const choice = budOrExOrIn(req.params.type);
+
+  let budgetOption = choice[0];
+  let expenseOption = choice[1];
+  let incomeOption = choice[2];
 
   try {
     const budgetData = await Budget.findAll({
@@ -129,6 +113,55 @@ router.get('/add/:type', withAuth, async (req, res) => {
   }
 });
 
+router.get('/viewAll/:type', withAuth, async (req, res) => {
+  console.log(req.params.type);
+
+  const choice = budOrExOrIn(req.params.type);
+
+  let budgetOption = choice[0];
+  let expenseOption = choice[1];
+  let incomeOption = choice[2];
+
+  //*ugly, but necessary because I can't use a switch case in handlebars, but I can use a nested if
+
+  try {
+    const budgetData = await Budget.findAll({
+      where: {
+        household_id: req.session.householdID,
+      },
+    });
+    const budgetArr = budgetData.map((content) => content.get({ plain: true }));
+
+    const expenseData = await Expenses.findAll({
+      where: {
+        budget_id: budgetData.id,
+      },
+    });
+    const expenseArr = expenseData.map((content) =>
+      content.get({ plain: true })
+    );
+
+    const incomeData = await Income.findAll({
+      where: {
+        household_id: req.session.householdID,
+      },
+    });
+
+    res.render('viewAll', {
+      budgetArr,
+      expenseArr,
+      budgetOption,
+      incomeOption,
+      expenseOption,
+      householdID: req.session.householdID,
+      loggedIn: req.session.loggedIn,
+      check: req.params.type,
+    });
+  } catch (err) {
+    console.log(err);
+  }
+});
+
 //!
 router.get('/edit', withAuth, async (req, res) => {
   try {
@@ -137,5 +170,30 @@ router.get('/edit', withAuth, async (req, res) => {
     });
   } catch (err) {}
 });
+
+const budOrExOrIn = (parameter) => {
+  let budgetOption;
+  let expenseOption;
+  let incomeOption;
+  switch (parameter) {
+    case 'budget':
+      budgetOption = true;
+      expenseOption = false;
+      incomeOption = false;
+      break;
+    case 'expense':
+      budgetOption = false;
+      expenseOption = true;
+      incomeOption = false;
+      break;
+    case 'income':
+      budgetOption = false;
+      expenseOption = false;
+      incomeOption = true;
+      break;
+  }
+  const results = [budgetOption, expenseOption, incomeOption];
+  return results;
+};
 
 module.exports = router;

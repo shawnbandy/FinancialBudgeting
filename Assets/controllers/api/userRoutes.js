@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-const { User } = require('../../models');
+const { User, Household } = require('../../models');
 
 // Creating the user
 router.post('/', async (req, res) => {
@@ -10,13 +10,21 @@ router.post('/', async (req, res) => {
       username: req.body.email,
       password: req.body.password,
     });
-    console.log(newUser);
+
+    const houseHold = await Household.create({
+      name: 'default',
+      user_id: newUser.id,
+    });
+
+    console.log(houseHold);
+    console.log(houseHold.id);
+
     req.session.save(() => {
       req.session.loggedIn = true;
       req.session.userId = newUser.id; //!
       req.session.email = newUser.email; //!
-
-      res.json(newUser);
+      req.session.householdID = houseHold.id;
+      res.json(newUser, houseHold);
     });
   } catch (err) {
     console.log(err);
@@ -41,11 +49,20 @@ router.post('/login', async (req, res) => {
       res.status(400).json({ message: 'Invalid username or password' });
       return;
     }
+    const houseHold = await Household.findOne({
+      where: {
+        user_id: user.id,
+      },
+    });
+
+    console.log(houseHold);
+
     req.session.save(() => {
       req.session.userId = user.id;
       req.session.email = user.email;
       req.session.loggedIn = true;
-      res.json({ user, message: 'You are now logged in' });
+      req.session.householdID = houseHold.id;
+      res.json({ user, houseHold, message: 'You are now logged in' });
     });
   } catch (err) {
     res.status(400).json({ message: 'Invalid username or password' });

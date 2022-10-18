@@ -4,7 +4,7 @@
     <!--Start of budget-->
     <section>
       <!--Start of budget-->
-      {{!-- {{#if budgetOption}} --}}
+      {{#if budgetOption}}
       <a 
         href="/dashboard"
         class="bg-red-500 rounded-md text-white font-medium mx-4 my-2 py-1.5 px-2"
@@ -13,37 +13,16 @@
       <section
         class='text-center bg-white rounded-md m-4 p-3'
       >
-        <h1 class="text-red-500 text-3xl font-semibold">Budget. Household id is ?</h1>
-        <form class='grid grid-cols-11 form space-x-2 mt-3' id='budgetForm'>
-          <div class='col-span-5'>
-            <h1 class="font-medium text-xl">Budget Category</h1>
-            <input
-              type='text'
-              id='budgetName'
-              class='form-control mb-5 w-full h-42px rounded-md p-2 name border-red-500'
-              placeholder='E.g., Entertainment'
-            />
-            <!-- Password field -->
-          </div>
-          <div class='col-span-5'>
-            <h1 class="font-medium text-xl">Amount</h1>
-            <input
-              type='text'
-              id='budgetAmount'
-              class='form-control mb-5 w-full h-42px rounded-md p-2 amount'
-              placeholder='E.g., 400'
-            />
-          </div>
-          <button
-            class='btn bg-red-400 m-2 rounded-md text-white font-medium'
-            type='submit'
-            id='budgetBtn'
-          >Submit</button>
-        </form>
+        <h1 class="text-red-500 text-3xl font-semibold">Budget List</h1>
+          <div class="flex flex-col">
+        {{#each budgetArr as |budget|}}
+        {{> viewAllBudget}}
+        {{/each}}
+      </div>
       </section>
     </section>
-    {{!-- {{else}} --}}
-      {{!-- {{#if expenseOption}}
+    {{else}}
+      {{#if expenseOption}}
     <section>
       <!--Start of Expense-->
       <a 
@@ -134,4 +113,4 @@
   </section>
   {{/if}}
   {{/if}}
-</section> --}}
+</section>
