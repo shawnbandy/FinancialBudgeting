@@ -35,6 +35,14 @@ router.get('/', async (req, res) => {
   }
 });
 
+router.get('/gettingStarted', async (req, res) => {
+  try {
+    res.render('gettingStarted');
+  } catch (err) {
+    console.log(err);
+  }
+});
+
 // about us route
 router.get('/aboutus', async (req, res) => {
   try {
