@@ -12,13 +12,28 @@ router.get('/signup', async (req, res) => {
 
 //!Login
 router.get('/login', async (req, res) => {
-  res.render('login');
+  if (req.session.loggedIn) {
+    res.redirect('/dashboard', {
+      loggedIn: req.session.loggedIn,
+    });
+    return;
+  } else {
+    res.render('login');
+  }
 });
 
 //!Homepage/Landing page
 router.get('/', async (req, res) => {
   try {
     res.render('homepage');
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+router.get('/gettingStarted', async (req, res) => {
+  try {
+    res.render('gettingStarted');
   } catch (err) {
     console.log(err);
   }
