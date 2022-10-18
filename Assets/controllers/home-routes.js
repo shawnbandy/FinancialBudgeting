@@ -1,6 +1,12 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { Budget, Expenses, Household, Income, User } = require('../models');
+const {
+  Budget,  
+  Expenses,
+  Household,
+  Income,
+  User,
+} = require('../models');
 const withAuth = require('../utils/auth');
 
 //!SignUp
@@ -13,9 +19,7 @@ router.get('/signup', async (req, res) => {
 //!Login
 router.get('/login', async (req, res) => {
   if (req.session.loggedIn) {
-    res.redirect('/dashboard', {
-      loggedIn: req.session.loggedIn,
-    });
+    res.redirect('/dashboard');
     return;
   } else {
     res.render('login');
@@ -38,12 +42,11 @@ router.get('/aboutus', async (req, res) => {
   } catch (err) {
     res.status(400).json(err);
   }
-});
+})
 
 //!Dashboard. Need to add WithAuth
 router.get('/dashboard', withAuth, async (req, res) => {
   //*home page needs your budget, expenses, and incomes
-
   try {
     const budgetData = await Budget.findAll(); //*TBC
 
@@ -63,72 +66,28 @@ router.get('/dashboard', withAuth, async (req, res) => {
     const incomeRev = incomeArr.reverse();
 
     res.render('dashboard', {
-      loggedIn: req.session.loggedIn,
       budgetRev,
       expenseRev,
       incomeRev,
-      loggedIn: true,
+      loggedIn: true
     });
   } catch (err) {}
 });
 
 //!Adding something to budget/income/expense
-router.get('/add/:type', withAuth, async (req, res) => {
-  console.log(req.params.type);
-  let budgetOption;
-  let expenseOption;
-  let incomeOption;
-
-  //*ugly, but necessary because I can't use a switch case in handlebars, but I can use a nested if
-  switch (req.params.type) {
-    case 'budget':
-      budgetOption = true;
-      expenseOption = false;
-      incomeOption = false;
-      break;
-    case 'expense':
-      budgetOption = false;
-      expenseOption = true;
-      incomeOption = false;
-      break;
-    case 'income':
-      budgetOption = false;
-      expenseOption = false;
-      incomeOption = true;
-      break;
-  }
-
+router.get('/add', withAuth, async (req, res) => {
   try {
-    const budgetData = await Budget.findAll({
-      where: {
-        household_id: req.session.householdID,
-      },
-    });
-
-    const budgetArr = budgetData.map((content) => content.get({ plain: true }));
-    console.log(budgetArr);
-
-    res.render('add', {
-      budgetArr,
-      budgetOption,
-      incomeOption,
-      expenseOption,
-      householdID: req.session.householdID,
-      loggedIn: req.session.loggedIn,
-      check: req.params.type,
-    });
-  } catch (err) {
-    console.log(err);
-  }
+    res.render('add');
+  } catch (err) {}
 });
 
 //!
 router.get('/edit', withAuth, async (req, res) => {
   try {
-    res.render('edit', {
-      loggedIn: req.session.loggedIn,
-    });
+    res.render('edit');
   } catch (err) {}
 });
 
+
 module.exports = router;
+
