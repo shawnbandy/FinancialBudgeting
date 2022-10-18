@@ -24,7 +24,7 @@ router.post('/', async (req, res) => {
       req.session.userId = newUser.id; //!
       req.session.email = newUser.email; //!
       req.session.householdID = houseHold.id;
-      res.json(newUser, houseHold);
+      res.status(200).json((newUser, houseHold));
     });
   } catch (err) {
     console.log(err);

@@ -53,21 +53,35 @@ router.get('/dashboard', withAuth, async (req, res) => {
   //*home page needs your budget, expenses, and incomes
 
   try {
-    const budgetData = await Budget.findAll({});
+    const budgetData = await Budget.findAll({
+      where: {
+        household_id: req.session.householdID,
+      },
+    });
     const budgetArr = budgetData.map((content) => content.get({ plain: true }));
     const budgetRev = budgetArr.reverse();
 
     //*this gets all of our expenses in plain data, then reverses it so the most recent expenses are first
-    const expenseData = await Expenses.findAll({});
+    const expenseData = await Expenses.findAll({
+      where: {
+        household_id: req.session.householdID,
+      },
+    });
     const expenseArr = expenseData.map((content) =>
       content.get({ plain: true })
     );
     const expenseRev = expenseArr.reverse();
+    console.log(`---------expenseData \n${expenseArr}`);
 
     //*this gets all of our incomes in plain data, then reverses it so the most recent incomes are first
-    const incomeData = await Income.findAll({});
+    const incomeData = await Income.findAll({
+      where: {
+        household_id: req.session.householdID,
+      },
+    });
     const incomeArr = incomeData.map((content) => content.get({ plain: true }));
     const incomeRev = incomeArr.reverse();
+    console.log(`---------incomeData \n${expenseArr}`);
 
     res.render('dashboard', {
       loggedIn: req.session.loggedIn,
@@ -134,7 +148,7 @@ router.get('/viewAll/:type', withAuth, async (req, res) => {
 
     const expenseData = await Expenses.findAll({
       where: {
-        budget_id: budgetData.id,
+        household_id: req.session.householdID,
       },
     });
     const expenseArr = expenseData.map((content) =>
@@ -146,10 +160,14 @@ router.get('/viewAll/:type', withAuth, async (req, res) => {
         household_id: req.session.householdID,
       },
     });
+    console.log(incomeData);
+    const incomeArr = incomeData.map((content) => content.get({ plain: true }));
+    console.log(incomeArr);
 
     res.render('viewAll', {
       budgetArr,
       expenseArr,
+      incomeArr,
       budgetOption,
       incomeOption,
       expenseOption,

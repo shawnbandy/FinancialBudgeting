@@ -6,7 +6,7 @@ router.post('/create', async (req, res) => {
     const newIncome = Income.create({
       name: req.body.name,
       amount: req.body.amount,
-      household_id: req.body.household_id,
+      household_id: req.session.householdID,
     });
 
     res.status(200).json(newIncome);
@@ -47,6 +47,4 @@ router.delete('/delete/:id', async (req, res) => {
   }
 });
 
-
 module.exports = router;
-

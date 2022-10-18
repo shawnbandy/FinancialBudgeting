@@ -7,6 +7,7 @@ router.post('/create', async (req, res) => {
       name: req.body.name,
       amount: req.body.amount,
       budget_id: req.body.budget_id,
+      household_id: req.session.householdID,
     });
 
     res.status(200).json(newExpense);
