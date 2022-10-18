@@ -25,16 +25,24 @@ const submitData = async (event) => {
         makeApiCreateRqst(type, name, amount);
       }
       break;
+
     case 'expenseForm':
       type = 'expense';
       //*idea from https://ricardometring.com/
       const select = document.getElementById('budgetID');
+      console.log(select.id);
+
+      if (!select.options[select.selectedIndex]) {
+        alert('Please add a budget first');
+      }
       const budget_id = select.options[select.selectedIndex].id;
       console.log(budget_id);
+
       if (name && amount) {
         makeApiCreateRqst(type, name, amount, budget_id);
       }
       break;
+
     case 'incomeForm':
       type = 'income';
       if (name && amount) {

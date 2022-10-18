@@ -78,7 +78,6 @@
           <div class='col-span-4'>
             <h1 class="font-medium text-lg">Choose Budget Category</h1>
             <select class="m-1.5 p-1.5" name='budget' id='budgetID'>
-              <option>test</option>
               {{#each budgetArr as |budget|}}
                 <option id={{budget.id}}>{{budget.name}}</option>
               {{/each}}
@@ -136,3 +135,4 @@
   {{/if}}
 </section>
 <script src='/js/addData.js'></script>
+<script src="/js/logout.js"></script>
