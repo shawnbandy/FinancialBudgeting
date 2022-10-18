@@ -12,10 +12,10 @@ router.get('/signup', async (req, res) => {
 
 //!Login
 router.get('/login', async (req, res) => {
+  console.log('-----------login start');
   if (req.session.loggedIn) {
-    res.redirect('/dashboard', {
-      loggedIn: req.session.loggedIn,
-    });
+    console.log('inside if');
+    res.redirect('/dashboard');
     return;
   } else {
     res.render('login');
