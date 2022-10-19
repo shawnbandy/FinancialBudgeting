@@ -21,6 +21,7 @@ if(res.ok) {
 const nextTutorial = async (event) => {
     event.preventDefault();
 
+    console.log(i);
     if (i !== 2) {
     // set first tutorial item to hidden
     tutorial1.setAttribute('class', 'hidden');
