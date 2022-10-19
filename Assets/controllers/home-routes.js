@@ -41,6 +41,14 @@ router.get('/gettingStarted', async (req, res) => {
   }
 });
 
+// router.get('/Assets/views/layouts/main', async (req, res) => {
+//   try {
+//     res.render('homepage');
+//   } catch (err) {
+//     console.log(err);
+//   }
+// });
+
 // about us route
 router.get('/aboutus', async (req, res) => {
   try {
