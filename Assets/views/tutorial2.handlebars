@@ -11,17 +11,21 @@
         <h3>Amount</h3>
       </div>
       <div class="flex flex-col">
-        {{#each budgetRev as |budget|}}
-        {{> budget-dashboard}}
-        {{/each}}
+        <div class='grid grid-cols-2 flex flex-row mx-3 text-lg hover:border hover:border-2 hover:border-red-600 px-2 rounded-md'>
+            <div class='justify-self-start'>
+                <p id='{{id}}'>Food</p>
+            </div>
+            <div class='grid grid-cols-2 justify-self-end'>
+                <p>750.00</p>
+                <button class='btn editBudgetBtn' id='{{id}}'>✏️</button>
+            </div>
+        </div>
       </div>
       <div class="flex flex-col content-center">
         <div>
             <button class="btn btn-red bg-red-600 rounded-md px-2 py-1.5 text-white mt-2" id="budgetAdd" data-type="1">Add Category</button>
             <button class="btn btn-red bg-red-600 rounded-md px-2 py-1.5 text-white mt-2" id="viewAllBudget" data-type="1">View All</button>
         </div>
-        <!-- bouncing animation for tutorial -->
-        {{> tutorial-1}}
       </div>
     </section>
     <section class='relative space-y-6 text-center'>
@@ -37,10 +41,16 @@
           {{> expense-dashboard}}
           {{/each}}
         </div>
-        <button class="btn btn-red bg-red-600 rounded-md px-2 py-1.5 text-white mt-2" id="expenseAdd" dataType="2">Add Expense</button>
-        <button class="btn btn-red bg-red-600 rounded-md px-2 py-1.5 text-white mt-2" id="viewAllExpense" data-type="2">View All</button>
+        <div class="flex flex-col content-center">
+            <div>
+                <button class="btn btn-red bg-red-600 rounded-md px-2 py-1.5 text-white mt-2" id="expenseAdd" dataType="2">Add Expense</button>
+                <button class="btn btn-red bg-red-600 rounded-md px-2 py-1.5 text-white mt-2" id="viewAllExpense" data-type="2">View All</button>
+            </div>
+                    <!-- bouncing animation for tutorial; make it a PARTIAL -->
+            <span id="tutorial-2" class="flex flex-col self-center mt-4 animate-bounce rounded-md p-2 bg-red-400 text-white text-sm text-center max-w-xs">^<br>Add expenses here 
+            </span>
+        </div>
       </section>
-      {{> tutorial-2}}
       <!--Start of Income-->
       <section class='relative text-center bg-white rounded-md py-3 px-2'>
         <h2 class="text-red-600 text-3xl font-semibold">Income</h2>
@@ -56,8 +66,6 @@
         <button class="btn btn-red bg-red-600 rounded-md px-2 py-1.5 text-white mt-2" id="incomeAdd" dataType="3">Add Income</button>
         <button class="btn btn-red bg-red-600 rounded-md px-2 py-1.5 text-white mt-2" id="viewAllIncome" data-type="3">View All</button>
       </section>
-        <!-- bouncing animation for tutorial-->
-        {{> tutorial-3}}
     </section>
   </section>
  
@@ -79,7 +87,7 @@
       </form>
     </div>
   </div>
-    <button class="fixed right-20 bottom-10 mt-4 rounded-md p-5 bg-white text-red-600 text-md text-center max-w-xs" id="nextTutorial" dataType="1">Next!</button>
+    <a href="/tutorial3" class="fixed right-20 bottom-10 mt-4 rounded-md p-5 bg-white text-red-600 text-md text-center max-w-xs" id="nextTutorial">Next!</a>
 </section>
 
 <script src="./js/tutorial.js"></script>
