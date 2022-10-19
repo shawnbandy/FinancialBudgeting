@@ -81,7 +81,7 @@ This application uses a variety of different NPM packages; most are to handle th
             i. [GitHub](https://github.com/ashclandry)
         B. Cristina Yunes
             i. [GitHub](https://github.com/Yuyitax)
-        C. Indigo Crandell
+        C. Indigo Fobes
             i. [GitHub](https://github.com/IndigoFobes)
         D. Jeremy Parson
             i. [GitHub](https://github.com/parsonjd)

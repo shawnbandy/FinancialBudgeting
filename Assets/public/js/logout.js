@@ -13,3 +13,4 @@ const logout = async () => {
 
 //!add it to the logout button
 document.querySelector('#logout').addEventListener('click', logout);
+document.querySelector('#logoutSm').addEventListener('click', logout);
