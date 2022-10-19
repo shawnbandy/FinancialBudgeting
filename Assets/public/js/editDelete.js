@@ -21,8 +21,6 @@ const showEdit = async (event) => {
   modalHeader.textContent = 'Editing ' + editingItem + ' on ' + type;
   console.log(type);
 
-  //const res = await fetch('/api/')
-
   modalHeader.textContent;
 };
 
@@ -54,6 +52,14 @@ const makeEdit = async (event) => {
 
 document
   .querySelectorAll('.editBudgetBtn')
+  .forEach((el) => el.addEventListener('click', showEdit));
+
+document
+  .querySelectorAll('.editIncomeBtn')
+  .forEach((el) => el.addEventListener('click', showEdit));
+
+document
+  .querySelectorAll('.editExpenseBtn')
   .forEach((el) => el.addEventListener('click', showEdit));
 
 modalClose.addEventListener('click', function () {
