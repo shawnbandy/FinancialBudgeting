@@ -1,4 +1,4 @@
-<section class='mt-6 min-h-screen'>
+<section class="mt-9 m-6 min-h-screen">
   <!--Establishes grid-->
   <section>
     <!--Start of budget-->
@@ -13,16 +13,16 @@
       <section
         class='text-center bg-white rounded-md m-4 p-3'
       >
-      <h1 class="text-red-600 text-3xl font-semibold">Budget List</h1>
-      <div class='flex flex-row justify-between mx-3 text-lg border-b-2 border-red-500'>
+      <h1 class="text-red-600 text-3xl font-bold mb-1">Budget List</h1>
+      <div class='flex flex-row justify-between mx-3 text-lg border-b-2 border-red-500 mb-1'>
         <div>
-          <p class="text-red-600 font-semibold">Name</p>
+          <p class="text-red-600 font-semibold">Category</p>
         </div>
         <div>
-          <p class="text-red-600 font-semibold">Set</p>
+          <p class="text-red-600 font-semibold">Budget</p>
         </div>
         <div>
-          <p class="text-red-600 font-semibold">Left</p>
+          <p class="text-red-600 font-semibold">Remaining</p>
         </div>
         <div>
           <p class="text-red-500 font-semibold">View</p>
@@ -48,16 +48,16 @@
       <section
         class='text-center bg-white rounded-md m-4 p-3'
       >
-      <h1 class="text-red-600 text-3xl font-semibold">Expense List</h1>
-      <div class='flex flex-row justify-between mx-3 text-lg border-b-2 border-red-500'>
+      <h1 class="text-red-600 text-3xl font-bold mb-1">Expense List</h1>
+      <div class='flex flex-row justify-between mx-3 text-lg border-b-2 mb-1 border-red-500'>
         <div>
-          <p class="text-red-600 font-semibold">Name</p>
+          <p class="text-red-600 font-semibold">Expense</p>
         </div>
         <div>
           <p class="text-red-600 font-semibold">Amount</p>
         </div>
         <div>
-          <p class="text-red-600 font-semibold">Budget</p>
+          <p class="text-red-600 font-semibold">Category</p>
         </div>
       </div>
         <div class="flex flex-col">
@@ -78,7 +78,15 @@
       <section
         class='text-center bg-white rounded-md m-4 p-3'
       >
-        <h1 class="text-red-600 text-3xl font-semibold">Income List</h1>
+        <h1 class="text-red-600 text-3xl font-bold mb-1">Income List</h1>
+        <div class='flex flex-row justify-between mx-3 text-lg border-b-2 mb-1 border-red-500'>
+        <div>
+          <p class="text-red-600 font-semibold">Source of Income</p>
+        </div>
+        <div>
+          <p class="text-red-600 font-semibold">Amount</p>
+        </div>
+      </div>
           <div class="flex flex-col">
         {{#each incomeArr as |income|}}
         {{> viewAllIncome}}
