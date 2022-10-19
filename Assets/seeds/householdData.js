@@ -2,8 +2,16 @@ const { Household } = require('../models');
 
 const householddata = [
   {
-    name: 'default',
+    name: 'The Martens',
     user_id: 1,
+  },
+  {
+    name: 'The Parsons',
+    user_id: 2,
+  },
+  {
+    name: 'The Waldens',
+    user_id: 3,
   },
 ];
 
