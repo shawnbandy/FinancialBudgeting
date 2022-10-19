@@ -1,0 +1,33 @@
+<section class='mt-6 min-h-screen'>
+  <!--Establishes grid-->
+  <section>
+    <!--Start of budget-->
+    <section>
+      <!--Start of budget-->
+      <a
+        href='/dashboard'
+        class='bg-red-500 rounded-md text-white font-medium mx-4 my-2 py-1.5 px-2'
+        aria-current='page'
+      >Back</a>
+      <section class='text-center bg-white rounded-md m-4 p-3'>
+        <h1 class='text-red-500 text-3xl font-semibold'>Budget List</h1>
+        <div
+          class='flex flex-row justify-between mx-3 text-lg border-b-2 border-red-500'
+        >
+          <div>
+            <p class='text-red-500 font-semibold'>Name</p>
+          </div>
+          <div>
+            <p class='text-red-500 font-semibold'>Amount</p>
+          </div>
+        </div>
+        <div class='flex flex-col'>
+          {{#each allExpenses as |expense|}}
+          {{> viewOneBudget}}
+          {{/each}}
+        </div>
+      </section>
+
+    </section>
+  </section>
+</section>

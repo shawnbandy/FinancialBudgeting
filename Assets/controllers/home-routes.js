@@ -195,6 +195,32 @@ router.get('/viewAll/:type', withAuth, async (req, res) => {
   }
 });
 
+router.get('/viewOne/budget/:id', withAuth, async (req, res) => {
+  try {
+    const oneBudget = await Budget.findAll({
+      where: {
+        id: req.params.id,
+      },
+      include: [
+        {
+          model: Expenses,
+        },
+      ],
+    });
+
+    const budgetArr = oneBudget.map((content) => content.get({ plain: true }));
+    const allExpenses = budgetArr[0].expenses;
+    console.log(budgetArr);
+    console.log(allExpenses);
+
+    res.render('viewOne', {
+      allExpenses,
+      householdID: req.session.householdID,
+      loggedIn: req.session.loggedIn,
+    });
+  } catch (err) {}
+});
+
 //!
 router.get('/edit', withAuth, async (req, res) => {
   try {
