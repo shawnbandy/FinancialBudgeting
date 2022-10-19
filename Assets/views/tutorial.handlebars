@@ -1,0 +1,84 @@
+<!-- Render sub layouts here! -->
+<!--Main page-->
+<section class='relative mt-9 m-6 min-h-screen'>
+  <!--Establishes grid-->
+  <section class='grid grid-cols-2 space-x-6'>
+    <!--Start of budget-->
+    <section class='text-center bg-white rounded-md py-3 px-2'>
+      <h2 class="text-red-600 text-3xl font-semibold">Budget</h2>
+      <div class="flex flex-row justify-between mx-3 text-xl font-medium pb-3">
+        <h3>Category</h3>
+        <h3>Amount</h3>
+      </div>
+      <div class="flex flex-col">
+        {{#each budgetRev as |budget|}}
+        {{> budget-dashboard}}
+        {{/each}}
+      </div>
+      <div class="flex flex-col content-center">
+        <div>
+            <button class="btn btn-red bg-red-600 rounded-md px-2 py-1.5 text-white mt-2" id="budgetAdd" data-type="1">Add Category</button>
+            <button class="btn btn-red bg-red-600 rounded-md px-2 py-1.5 text-white mt-2" id="viewAllBudget" data-type="1">View All</button>
+        </div>
+        <!-- bouncing animation for tutorial -->
+        {{> tutorial-1}}
+      </div>
+    </section>
+    <section class='relative space-y-6 text-center'>
+      <!--Start of Expenses-->
+      <section class='text-center bg-white rounded-md py-3 px-2'>
+        <h2 class="text-red-600 text-3xl font-semibold">Expenses</h2>
+        <div class="flex flex-row justify-between mx-3 text-xl font-medium pb-3">
+          <h3>Purchase</h3>
+          <h3>Amount</h3>
+        </div>
+        <div class="flex flex-col">
+          {{#each expenseRev as |expense|}}
+          {{> expense-dashboard}}
+          {{/each}}
+        </div>
+        <button class="btn btn-red bg-red-600 rounded-md px-2 py-1.5 text-white mt-2" id="expenseAdd" dataType="2">Add Expense</button>
+        <button class="btn btn-red bg-red-600 rounded-md px-2 py-1.5 text-white mt-2" id="viewAllExpense" data-type="2">View All</button>
+      </section>
+      <!--Start of Income-->
+      <section class='relative text-center bg-white rounded-md py-3 px-2'>
+        <h2 class="text-red-600 text-3xl font-semibold">Income</h2>
+        <div class="flex flex-row justify-between mx-3 text-xl font-medium pb-3">
+          <h3>Source</h3>
+          <h3>Amount</h3>
+        </div>
+        <div class="flex flex-col">
+          {{#each incomeRev as |income|}}
+          {{> income-dashboard}}
+          {{/each}}
+        </div>
+        <button class="btn btn-red bg-red-600 rounded-md px-2 py-1.5 text-white mt-2" id="incomeAdd" dataType="3">Add Income</button>
+        <button class="btn btn-red bg-red-600 rounded-md px-2 py-1.5 text-white mt-2" id="viewAllIncome" data-type="3">View All</button>
+      </section>
+        <!-- bouncing animation for tutorial-->
+        {{> tutorial-2}}
+    </section>
+  </section>
+ 
+    <!-- Modal content -->
+  <div id="editModal" class="modal hidden">
+    <div class="modal-content text-center bg-white rounded-md py-3 px-2 pt-5 mt-6">
+      <span id="modalClose" class="btn">&times;</span>
+      <h3 id="modalHeader">Editing</h3>
+      <form class='form login-form grid grid-cols-2' id='editForm'>
+        <div class='form-group'>
+          <input id='editName' type="text" class="block border border-grey-light w-full p-3 rounded mb-4" placeholder="Update Name"/>
+        </div>
+        <div class='form-group'>
+          <input type="text" id='editAmount' class="block border border-grey-light w-full p-3 rounded mb-4" placeholder="Update Amount" />
+        </div>
+        <button class="btn btn-red bg-red-500 rounded-md px-2 py-1.5 text-white mt-2" type="submit">
+          Submit
+        </button>
+      </form>
+    </div>
+  </div>
+    <button class="fixed right-20 bottom-20 mt-4 rounded-md p-5 bg-white text-red-600 text-md text-center max-w-xs" id="nextTutorial" data-type="1">Next!</button>
+</section>
+
+<script src="./js/tutorial.js"></script>

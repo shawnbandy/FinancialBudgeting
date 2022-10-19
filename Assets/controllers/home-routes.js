@@ -49,6 +49,15 @@ router.get('/gettingStarted', async (req, res) => {
 //   }
 // });
 
+// tutorial route ** ADD withAuth **
+router.get('/tutorial', async(req, res) => {
+  try {
+    res.render('tutorial');
+  } catch (err) {
+    res.status(400).json(err);
+  }
+})
+
 // about us route
 router.get('/aboutus', async (req, res) => {
   try {
