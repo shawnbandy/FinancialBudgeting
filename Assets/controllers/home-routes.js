@@ -210,10 +210,12 @@ router.get('/viewOne/budget/:id', withAuth, async (req, res) => {
 
     const budgetArr = oneBudget.map((content) => content.get({ plain: true }));
     const allExpenses = budgetArr[0].expenses;
+    const budgetName = budgetArr[0];
     console.log(budgetArr);
     console.log(allExpenses);
 
     res.render('viewOne', {
+      budgetName,
       allExpenses,
       householdID: req.session.householdID,
       loggedIn: req.session.loggedIn,
