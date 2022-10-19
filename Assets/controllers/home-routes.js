@@ -181,7 +181,6 @@ router.get('/viewAll/:type', withAuth, async (req, res) => {
     console.log(budgetLeft);
     res.render('viewAll', {
       budgetArr,
-      budgetLeft,
       expenseArr,
       incomeArr,
       budgetOption,

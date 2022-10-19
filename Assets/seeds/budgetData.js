@@ -1,56 +1,17 @@
-
 const { Budget } = require('../models');
 
-const budgetdata =
-[
+const budgetdata = [
   {
-    "name": "rent",   
-    "amount": 1200,    
-    "household_id": 1,
+    name: 'rent',
+    amount: 1500,
+    household_id: 1,
   },
+
   {
-    "name": "utilities",   
-    "amount": 200,    
-    "household_id": 1,
-  },  
-  {
-    "name": "miscellaneous",   
-    "amount": 250,    
-    "household_id": 1,
-  },  
- 
-  {
-    "name": "rent",   
-    "amount": 1200,    
-    "household_id": 2,
+    name: 'Food',
+    amount: 600,
+    household_id: 1,
   },
-  {
-    "name": "utilities",   
-    "amount": 200,    
-    "household_id": 2,
-  },  
-  {
-    "name": "miscellaneous",   
-    "amount": 250,    
-    "household_id": 2,
-  },  
-  {
-    "name": "rent",   
-    "amount": 1200,    
-    "household_id": 3,
-  },
-  {
-    "name": "utilities",   
-    "amount": 200,    
-    "household_id": 3,
-  },  
-  {
-    "name": "miscellaneous",   
-    "amount": 250,    
-    "household_id": 3,
-  },  
- 
- 
 ];
 
 const seedBudget = () => Budget.bulkCreate(budgetdata);
