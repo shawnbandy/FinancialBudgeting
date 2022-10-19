@@ -40,6 +40,7 @@
         <button class="btn btn-red bg-red-600 rounded-md px-2 py-1.5 text-white mt-2" id="expenseAdd" dataType="2">Add Expense</button>
         <button class="btn btn-red bg-red-600 rounded-md px-2 py-1.5 text-white mt-2" id="viewAllExpense" data-type="2">View All</button>
       </section>
+      {{> tutorial-2}}
       <!--Start of Income-->
       <section class='relative text-center bg-white rounded-md py-3 px-2'>
         <h2 class="text-red-600 text-3xl font-semibold">Income</h2>
@@ -56,7 +57,7 @@
         <button class="btn btn-red bg-red-600 rounded-md px-2 py-1.5 text-white mt-2" id="viewAllIncome" data-type="3">View All</button>
       </section>
         <!-- bouncing animation for tutorial-->
-        {{> tutorial-2}}
+        {{> tutorial-3}}
     </section>
   </section>
  
@@ -78,7 +79,7 @@
       </form>
     </div>
   </div>
-    <button class="fixed right-20 bottom-20 mt-4 rounded-md p-5 bg-white text-red-600 text-md text-center max-w-xs" id="nextTutorial" data-type="1">Next!</button>
+    <a class="fixed right-20 bottom-10 mt-4 rounded-md p-5 bg-white text-red-600 text-md text-center max-w-xs" id="nextTutorial" dataType="1">Next!</a>
 </section>
 
 <script src="./js/tutorial.js"></script>
