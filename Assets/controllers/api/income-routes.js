@@ -19,8 +19,8 @@ router.put('/edit/:id', async (req, res) => {
   try {
     const updateIncome = await Income.update(
       {
-        name: req.body.name,
-        amount: req.body.amount,
+        name: req.body.editName,
+        amount: req.body.editAmount,
       },
       {
         where: {
