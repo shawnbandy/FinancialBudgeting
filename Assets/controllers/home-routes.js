@@ -159,6 +159,7 @@ router.get('/viewAll/:type', withAuth, async (req, res) => {
     });
 
     const budgetArr = budgetData.map((content) => content.get({ plain: true }));
+    console.log(budgetArr);
     const budgetLeft = totalBudgetExpenses(budgetArr);
     for (let i = 0; i < budgetArr.length; i++) {
       budgetArr[i].budgetLeftover = budgetLeft[i];
@@ -279,9 +280,11 @@ const displayFive = (array) => {
 
 //*this function inputs a budget array, gets the budget amount, and then subtracts all relevant expenses for each budget category
 const totalBudgetExpenses = (array) => {
+  console.log(array);
   newArray = [];
   let sum = 0;
   for (let i = 0; i < array.length; i++) {
+    console.log(array[i]);
     newArray.push(array[i].amount);
 
     for (let j = 0; j < array[i].expenses.length; j++) {
