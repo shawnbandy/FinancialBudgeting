@@ -36,20 +36,24 @@ const nextTutorial = async (event) => {
     // Show current tutorial item
     tutorialArr[i].removeAttribute('class', 'hidden');
     // i is now defined as i + 1
+    console.log(tutorialArr[i]);
     i++;
 
     // don't really know how this is working?
     tutorialArr[i].setAttribute('class', 'hidden');
 
-    } else {
+
+    
+    } else if (i===2) {
     // Once all three tutorial elements have popped up, change next button to dashboard button
         console.log('end of tutorial!');
         nextBtn.textContent = 'Go to Dashboard!';
         // call function to go to dashboard
         //nextBtn.setAttribute('href', '/dashboard');
 
-        goToDashboard();
+        nextBtn.addEventListener('click', goToDashboard());
     }
+
 }
 
 nextBtn.addEventListener('click', nextTutorial);
