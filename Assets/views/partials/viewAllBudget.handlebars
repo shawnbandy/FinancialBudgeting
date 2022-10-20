@@ -1,14 +1,14 @@
-<div class='flex flex-row justify-between mx-3 text-lg'>
-  <div>
+<div class='flex grid grid-cols-4 justify-between mx-3 text-lg'>
+  <div class="flex justify-self-start">
     <p>{{name}}</p>
   </div>
-  <div>
+  <div class="pl-10 flex justify-self-start">
     <p>{{amount}}</p>
   </div>
-  <div>
+  <div class="pr-10 flex justify-self-end">
     <p>{{budgetLeftover}}</p>
   </div>
-  <button class='btn viewOne' id='{{id}}'>
+  <button class='btn viewOne flex justify-self-end' id='{{id}}'>
     👀
   </button>
 </div>
