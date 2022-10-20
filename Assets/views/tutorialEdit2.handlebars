@@ -62,6 +62,38 @@
       </section>
     </section>
   </section>
+  <!-- Start of Totals -->
+  <section class='text-center bg-white rounded-md py-3 px-2 pt-5 mt-6'>
+      <h1 class="text-red-600 text-3xl font-bold mb-1">Totals</h1>
+      <div class='grid grid-cols-4 justify-between mx-3 border-b-2 border-red-500 mb-1'>
+        <div>
+          <p class="text-xl font-regular">Budget</p>
+        </div>
+        <div>
+          <p class="text-xl font-regular">Expenses</p>
+        </div>
+        <div>
+          <p class="text-xl font-regular">Income</p>
+        </div>
+        <div>
+          <p class="text-xl font-regular">Est. Savings</p>
+        </div>
+      </div>
+      <div class="grid grid-cols-4 justify-between mx-3">
+        <div>
+          <div>{{budgetTotal}}</div>
+        </div>
+        <div>
+          <div>{{expenseTotal}}</div>
+        </div>
+        <div>
+          <div>{{incomeTotal}}</div>
+        </div>
+        <div>
+          <div>{{savingTotal}}</div>
+        </div>
+      </div>
+  </section>
  
     <!-- Modal content -->
   <div id="editModal" class="modal">
