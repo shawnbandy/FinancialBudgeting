@@ -12,13 +12,14 @@
       </div>
       <div class="flex flex-col">
         <div class='grid grid-cols-2 flex flex-row mx-3 text-lg hover:border hover:border-2 hover:border-red-600 px-2 rounded-md'>
-            <div class='justify-self-start'>
-                <p id='{{id}}'>Food</p>
-            </div>
-            <div class='grid grid-cols-2 justify-self-end'>
-                <p>750.00</p>
-                <button class='btn editBudgetBtn' id='{{id}}'>✏️</button>
-            </div>
+          <div class='justify-self-start'>
+            <p id='{{id}}'>Food</p>
+          </div>
+          <div class='grid grid-cols-3'>
+            <p>750.00</p>
+            <button class='btn editBudgetBtn' id='{{id}}'>✏️</button>
+            <button class='btn deleteBudgetBtn' id='{{id}}'>❌</button>
+          </div>
         </div>
       </div>
       <div class="flex flex-col content-center">
@@ -61,8 +62,8 @@
                 <button class="btn btn-red bg-red-600 rounded-md px-2 py-1.5 text-white mt-2" id="incomeAdd" dataType="3">Add Income</button>
                 <button class="btn btn-red bg-red-600 rounded-md px-2 py-1.5 text-white mt-2" id="viewAllIncome" data-type="3">View All</button>
             </div>
-            <!-- bouncing animation for tutorial; make it a PARTIAL -->
-            <span id="tutorial-1" class="flex flex-col self-center mt-4 animate-bounce rounded-md p-2 bg-red-400 text-white text-sm text-center max-w-xs">^<br>Add income here 
+            <!-- Bouncing Guide! -->
+            <span id="tutorial-1" class="flex flex-col self-center mt-4 animate-bounce rounded-md p-2 border-solid border-2 border-red-600 text-red-600 font-medium  text-sm text-center max-w-xs">⇧<br>add income here 
             </span>
         </div>
       </section>
@@ -87,7 +88,7 @@
       </form>
     </div>
   </div>
-    <a href="/dashboard" class="fixed right-20 bottom-10 mt-4 rounded-md p-5 bg-white text-red-600 text-md text-center max-w-xs" id="nextTutorial">Go to My Dashboard!</a>
+    <a href="/dashboard" class="fixed right-40 bottom-10 mt-4 rounded-md p-5 bg-white text-red-600 font-bold text-md text-center max-w-xs border border-solid border-4 border-violet-900" id="nextTutorial">Go to My Dashboard!</a>
 </section>
 
 <script src="./js/tutorial.js"></script>
