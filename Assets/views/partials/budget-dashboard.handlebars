@@ -1,8 +1,9 @@
-<div class="flex flex-row justify-between mx-3 text-lg">
-  <div>
-    <p>{{name}}</p>
+<div class='grid grid-cols-2 flex flex-row mx-3 text-lg hover:border hover:border-2 hover:border-red-600 px-2 rounded-md'>
+  <div class='justify-self-start'>
+    <p id='{{id}}'>{{name}}</p>
   </div>
-  <div>
-    {{amount}}
+  <div class='grid grid-cols-2 justify-self-end'>
+    <p>{{amount}}</p>
+    <button class='btn editBudgetBtn justify-self-end' id='{{id}}'>✏️</button>
   </div>
 </div>

@@ -6,9 +6,10 @@ router.post('/create', async (req, res) => {
     const newExpense = await Expenses.create({
       name: req.body.name,
       amount: req.body.amount,
-      budget_id: req.body.budget_id,
+      budget_id: req.body.parentID,
+      household_id: req.session.householdID,
     });
-
+    console.log(newExpense);
     res.status(200).json(newExpense);
   } catch (err) {
     res.status(404).json({ message: 'Unable to create a new expense. ' + err });
@@ -19,8 +20,8 @@ router.put('/edit/:id', async (req, res) => {
   try {
     const updateExpense = await Expenses.update(
       {
-        name: req.body.name,
-        amount: req.body.amount,
+        name: req.body.editName,
+        amount: req.body.editAmount,
       },
       {
         where: {
