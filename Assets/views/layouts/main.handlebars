@@ -13,7 +13,7 @@
       href='https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css'
     />
     <!-- Connecting stylesheet for additional personalized css-->
-    <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="./style.css"/>
 
   </head>
 
@@ -35,7 +35,7 @@
               <div class="hidden sm:ml-6 sm:block">
                 <div class="flex space-x-4">
                 
-                  <a href="/aboutus" class="bg-red-500 text-white px-3 py-2 rounded-md text-sm font-medium ml-10" aria-current="page">About Us</a> 
+                  <a href="/aboutus"><button class="bg-red-500 text-white px-3 py-2 rounded-md text-sm font-medium ml-10" aria-current="page">About Us</button></a> 
 
                   {{#if loggedIn}}
                   <button class="bg-red-500 text-white px-3 py-2 rounded-md text-sm font-medium" id="logout">Logout</button>
@@ -44,18 +44,17 @@
 
                 {{else}}
                   <a
-                    href='/signup'
-                    class='bg-red-500 text-white px-3 py-2 rounded-md text-sm font-medium'
+                    href='/signup'>
+                    <button class='bg-red-500 text-white px-3 py-2 rounded-md text-sm font-medium'
                     aria-current='page'
                   >
-                  Sign Up</a>
-                  <a
-                    href='/login'
-                    class='bg-red-500 text-white px-3 py-2 rounded-md text-sm font-medium'
+                  Sign Up</button></a>
+                  <a href='/login'>
+                    <button class='bg-red-500 text-white px-3 py-2 rounded-md text-sm font-medium'
                     aria-current='page'
                   ><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 float-left mr-1">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
-                    </svg>Login</a>
+                    </svg>Login</button></a>
                   
                   {{/if}}
                 </div>
@@ -74,11 +73,10 @@
               class='no-button bg-red-500 text-white px-3 py-1.5 rounded-md font-medium'
               id='logout'
             >Logout</button>
-            <a
-              href='/dashboard'
-              class='bg-red-500 text-white px-3 py-2 rounded-md text-sm font-medium'
+            <a href='/dashboard'>
+              <button class='bg-red-500 text-white px-3 py-2 rounded-md text-sm font-medium'
               aria-current='page'
-            >Dashboard</a>
+            >Dashboard</button></a>
           {{else}}
             <a
               href='/login'
