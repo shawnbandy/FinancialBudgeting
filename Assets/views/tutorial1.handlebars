@@ -20,8 +20,8 @@
             <button class="btn btn-red bg-red-600 rounded-md px-2 py-1.5 text-white mt-2" id="budgetAdd" data-type="1">Add Category</button>
             <button class="btn btn-red bg-red-600 rounded-md px-2 py-1.5 text-white mt-2" id="viewAllBudget" data-type="1">View All</button>
         </div>
-        <!-- bouncing animation for tutorial; make it a PARTIAL -->
-        <span id="tutorial-1" class="flex flex-col self-center mt-4 animate-bounce rounded-md p-2 bg-red-400 text-white text-sm text-center max-w-xs">^<br>Add budget categories here 
+        <!-- Bouncing Guide! -->
+        <span id="tutorial-1" class="flex flex-col self-center mt-6 animate-bounce rounded-md p-2 border-solid border-2 border-red-600 text-red-600 font-medium text-sm text-center max-w-xs">⇧<br>add budget<br>categories here 
         </span>
       </div>
     </section>
@@ -42,7 +42,7 @@
         <button class="btn btn-red bg-red-600 rounded-md px-2 py-1.5 text-white mt-2" id="viewAllExpense" data-type="2">View All</button>
       </section>
       <!--Start of Income-->
-      <section class='relative text-center bg-white rounded-md py-3 px-2'>
+      <section class='text-center bg-white rounded-md py-3 px-2'>
         <h2 class="text-red-600 text-3xl font-semibold">Income</h2>
         <div class="flex flex-row justify-between mx-3 text-xl font-medium pb-3">
           <h3>Source</h3>
@@ -77,7 +77,8 @@
       </form>
     </div>
   </div>
-    <a href="/tutorialEdit" class="fixed right-20 bottom-10 mt-4 rounded-md p-5 bg-white text-red-600 text-md text-center max-w-xs" id="nextTutorial">Next!</a>
+    <a href="/tutorialAdd" class="fixed right-20 bottom-10 mt-4 rounded-md p-5 bg-white text-red-600 font-bold text-md text-center max-w-xs border border-solid border-4 border-violet-900" id="nextTutorial">Next</a>
+    <a href="/dashboard" class="fixed right-40 bottom-10 mt-4 rounded-md p-5 bg-white text-red-600 font-bold text-md text-center max-w-xs border border-solid border-4 border-violet-900" id="nextTutorial">Skip Tutorial</a>
 </section>
 
 <script src="./js/tutorial.js"></script>
