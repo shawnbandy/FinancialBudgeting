@@ -1,4 +1,4 @@
-<section class="mt-9 m-6 min-h-screen">
+<section class="container mx-auto mt-9 m-6 min-h-screen">
   <!--Establishes grid-->
   <section>
     <!--Start of budget-->
@@ -16,19 +16,19 @@
       <h1 class="text-red-600 text-3xl font-bold mb-1">Budget List</h1>
       <div class='grid grid-cols-4 justify-between mx-3 border-b-2 border-red-500 mb-1'>
         <div>
-          <p class="text-xl font-regular text-red-600 font-regular">Category</p>
+          <p class="text-xl font-regular">Category</p>
         </div>
         <div>
-          <p class="text-xl font-regular text-red-600 font-regular">Budget</p>
+          <p class="text-xl font-regular">Budget</p>
         </div>
         <div>
-          <p class="text-xl font-regular text-red-600 font-regular">Remaining</p>
+          <p class="text-xl font-regular">Remaining</p>
         </div>
         <div>
-          <p class="text-xl font-regular text-red-600 font-regular">View</p>
+          <p class="text-xl font-regular">View</p>
         </div>
       </div>
-      <div class="flex flex-col">
+      <div class="flex flex-col hover:border hover:border-2 hover:border-red-600 rounded-md">
         {{#each budgetArr as |budget|}}
         {{> viewAllBudget}}
         {{/each}}
@@ -51,16 +51,16 @@
       <h1 class="text-red-600 text-3xl font-bold mb-1">Expense List</h1>
       <div class='grid grid-cols-3 place-content-evenly justify-between mx-3 text-lg border-b-2 mb-1 border-red-500'>
         <div>
-          <p class="text-xl font-regular text-red-600 font-regular">Expense</p>
+          <p class="text-xl font-regular">Expense</p>
         </div>
         <div>
-          <p class="text-xl font-regular text-red-600 font-regular">Amount</p>
+          <p class="text-xl font-regular">Amount</p>
         </div>
         <div>
-          <p class="text-xl font-regular text-red-600 font-regular">Category</p>
+          <p class="text-xl font-regular">Category</p>
         </div>
       </div>
-        <div class="flex flex-col">
+        <div class="flex flex-col hover:border hover:border-2 hover:border-red-600 rounded-md">
         {{#each expenseArr as |expense|}}
         {{> viewAllExpense}}
         {{/each}}
@@ -81,13 +81,13 @@
         <h1 class="text-red-600 text-3xl font-bold mb-1">Income List</h1>
         <div class='grid grid-cols-2 place-content-evenly justify-between mx-3 text-lg border-b-2 mb-1 border-red-500'>
         <div>
-          <p class="text-xl font-regular text-red-600 font-regular">Source of Income</p>
+          <p class="text-xl font-regular">Source of Income</p>
         </div>
         <div>
-          <p class="text-xl font-regular text-red-600 font-regular">Amount</p>
+          <p class="text-xl font-regular">Amount</p>
         </div>
       </div>
-          <div class="flex flex-col">
+          <div class="flex flex-col hover:border hover:border-2 hover:border-red-600 rounded-md">
         {{#each incomeArr as |income|}}
         {{> viewAllIncome}}
         {{/each}}

@@ -1,14 +1,15 @@
 <!--Establishes grid-->
-<section class='mt-6 min-h-screen'>
+<section class="container mx-auto mt-9 m-6 min-h-screen">
   <!--Start of budget-->
   <section class="mt-9 m-6 min-h-screen">
     <section>
       {{#if budgetOption}}
       <a 
-        href="/dashboard"
-        class="bg-red-600 rounded-md text-white font-medium mx-4 my-2 py-1.5 px-2"
+        href="/dashboard">
+        <button class="bg-red-600 rounded-md text-white font-medium mx-4 my-2 py-1.5 px-2"
         aria-current='page'
-      >Back</a>
+      >
+      Back</button></a>
       <section
         class='text-center bg-white rounded-md m-4 p-3'
       >
@@ -56,7 +57,7 @@
                       transition
                       ease-in-out
                       m-0
-                      focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none'
+                      focus:text-gray-700 focus:bg-white focus:border-red-600 focus:outline-none'
                       placeholder="E.g., 400">
             </div>
           </div>          
@@ -72,7 +73,7 @@
               text-white
               leading-tight
               shadow-md
-              hover:bg-red-700 hover:shadow-lg
+              hover:bg-red-700 hover:shadow-lg 
               focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0
               active:bg-red-700 active:shadow-lg
               transition
@@ -87,10 +88,12 @@
       <!--Start of Expense-->
     <section class="mt-9 m-6 min-h-screen">
       <a 
-        href="/dashboard"
-        class="bg-red-600 rounded-md text-white font-medium mx-4 my-2 py-1.5 px-2"
+        href="/dashboard">
+        <button class="bg-red-600 rounded-md text-white font-medium mx-4 my-2 py-1.5 px-2"
         aria-current='page'
-      >Back</a>
+      >
+      Back</button></a>
+
       <section
         class='text-center bg-white rounded-md m-4 p-3'
       >
@@ -98,7 +101,7 @@
         <form class='form' id='expenseForm'>
           <div class='grid grid-cols-3 gap-4 mt-3'>
             <div class='form-group mb-6'>
-              <h1 class="font-regular mb-1 text-xl">Name of Expense</h1>
+              <h1 class="font-regular mb-1 text-xl">Expense</h1>
               <input
                 type='text'
                 id='expenseName'
