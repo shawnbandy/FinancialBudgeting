@@ -33,6 +33,8 @@ const makeEdit = async (event) => {
 
   console.log(id);
   console.log(event.target.parentElement);
+  console.log(currentType);
+  console.log(currentID);
 
   if (editName && editAmount) {
     const res = await fetch(`/api/${currentType}/edit/${currentID}`, {
@@ -52,15 +54,14 @@ const makeEdit = async (event) => {
 
 const delItem = async (event) => {
   event.preventDefault();
-  let id = event.target.id; 
-  console.log(event.target.className)   
-  let type = budIncExp2(event.target.className)
+  let id = event.target.id;
+  console.log(event.target.className);
+  let type = budIncExp2(event.target.className);
   currentType = type;
   currentID = id;
- 
 
   const res = await fetch(`/api/${currentType}/delete/${currentID}`, {
-    method: 'DELETE',    
+    method: 'DELETE',
     headers: { 'Content-Type': 'application/json' },
   });
 
@@ -70,9 +71,7 @@ const delItem = async (event) => {
   } else {
     alert('Failed to delete');
   }
-  
-
-}
+};
 
 document
   .querySelectorAll('.editBudgetBtn')
@@ -101,7 +100,6 @@ document
 document
   .querySelectorAll('.deleteExpenseBtn')
   .forEach((el) => el.addEventListener('click', delItem));
-
 
 editForm.addEventListener('submit', makeEdit);
 

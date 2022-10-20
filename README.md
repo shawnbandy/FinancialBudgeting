@@ -98,3 +98,6 @@ This application uses a variety of different NPM packages; most are to handle th
             i. [GitHub](https://github.com/parsonjd)
         E. Shawn Canavan
             i. [GitHub](https://github.com/shawnbandy)
+
+---
+© 2022 The Budget Buddy. All Rights Reserved.
