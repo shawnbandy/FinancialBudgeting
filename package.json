@@ -12,7 +12,7 @@
     "precise-calculator": "^3.0.7"
   },
   "scripts": {
-    "start": "node Assets/server.js",
+    "start": "node server.js",
     "seed": "node Assets/seeds/index.js"
   }
 }
