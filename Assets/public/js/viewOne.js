@@ -8,6 +8,8 @@ const viewOne = async (event) => {
     headers: { 'Content-Type': 'application/json' },
   });
 
+  console.log(res);
+
   if (res.ok) {
     document.location.replace(`/viewOne/budget/${id}`);
   } else {
@@ -15,6 +17,6 @@ const viewOne = async (event) => {
   }
 };
 
-document
-  .querySelectorAll('.viewOne')
-  .forEach((el) => el.addEventListener('click', viewOne));
+// document
+//   .querySelectorAll('.viewOne')
+//   .forEach((el) => el.addEventListener('click', viewOne));
