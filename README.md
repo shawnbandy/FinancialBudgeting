@@ -1,8 +1,18 @@
 # Budget Buddy
 
 ## Description
+Budget Buddy is a hands-on and easy-to-use money management web application. The app allows  users to view, manage, and distribute their expenses all in one user-friendly dashboard. This full-stack web application was built using the MVC paradigm, handlebars.js and tailwind as the front-end UI and JS for scripting.
 
-Budget Buddy is a hands-on, easy-to-use, and free budget management web application. The app allows its users to view, add, and manage their all finances in one place. This full-stack web application was built using the MVC paradigm, handlebars.js, tailwindcss for the front-end UI, and JS for scripting.
+
+### User Story
+```md
+As a daily consumer and household member
+I want the ability to manage my income,
+TO create an account that will hold all of my budget information,
+I also want to be able to create, edit, and remove my entries,
+SO THAT I can easily distribute and manage my expenses as I deem it necessary. All in one place. 
+```
+
 
 ### Application Specifics
 
@@ -69,6 +79,7 @@ This application uses a variety of different NPM packages; most are to handle th
        A. Some users may have multiple homes they need to budget for, and we plan to implement functionality to create, edit, and delete households that contain their own budgets, expenses, and income. There would be a 'default' view, which would show all households, budget amounts, total amount of expenses, and total amount of income, and the user could switch between the macro 'default' view and each individual household for a more in depth look.
     2. Sorting
         A. We plan to allow users to sort their budgets, expenses, and income by amounts, name, type, and date in the View All page.
+        We would also like to allow users to re-assign the different expenses they have entered.
     3. Month to Month
         A. We plan to implement a month to month budgeting functionality that users can use to see their monthly budgets, expenses, and incomes with statistics. Budget categories would be carried over each month with expenses and income being reset. Statistics would show the net income minus expenses, budgets that the user went over or under with a percentage amount and dollar amount, and an overall user net savings that sums all income and all expenses on the account.
     4. Excel Exporting
@@ -81,7 +92,7 @@ This application uses a variety of different NPM packages; most are to handle th
             i. [GitHub](https://github.com/ashclandry)
         B. Cristina Yunes
             i. [GitHub](https://github.com/Yuyitax)
-        C. Indigo Crandell
+        C. Indigo Fobes
             i. [GitHub](https://github.com/IndigoFobes)
         D. Jeremy Parson
             i. [GitHub](https://github.com/parsonjd)
