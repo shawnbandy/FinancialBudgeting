@@ -36,11 +36,11 @@
                 
                   {{#if loggedIn}}
                     <button
-                      class='no-button bg-red-500 text-white px-3 py-1.5 rounded-md font-medium'
+                      class='no-button bg-red-600 text-white px-3 py-1.5 rounded-md font-medium'
                       id='logout'
                     >Logout</button>
                     <a href='/dashboard'>
-                      <button class='bg-red-500 text-white px-3 py-2 rounded-md text-sm font-medium'
+                      <button class='bg-red-600 text-white px-3 py-2 rounded-md text-sm font-medium'
                       aria-current='page'
                     >Dashboard</button></a>                  
                     {{!-- <button class="bg-red-500 text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page" id="houseHoldAddBtn">Add your Household</a> --}}
@@ -48,12 +48,12 @@
                 {{else}}
                   <a
                     href='/signup'>
-                    <button class='bg-red-500 text-white px-3 py-2 rounded-md text-sm font-medium'
+                    <button class='bg-red-600 text-white px-3 py-2 rounded-md text-sm font-medium'
                     aria-current='page'
                   >
                   Sign Up</button></a>
                   <a href='/login'>
-                    <button class='bg-red-500 text-white px-3 py-2 rounded-md text-sm font-medium'
+                    <button class='bg-red-600 text-white px-3 py-2 rounded-md text-sm font-medium'
                     aria-current='page'
                   ><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 float-left mr-1">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
@@ -61,7 +61,7 @@
                   
                 {{/if}}
                   <a href="/aboutus">
-                    <button class="bg-red-500 text-white px-3 py-2 rounded-md text-sm font-medium" 
+                    <button class="bg-red-600 text-white px-3 py-2 rounded-md text-sm font-medium" 
                     aria-current="page"
                   >
                   About Us</button></a>
@@ -77,29 +77,29 @@
           <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
           {{#if loggedIn}}
             <button
-              class='no-button bg-red-500 text-white px-3 py-1.5 rounded-md font-medium'
+              class='no-button bg-red-600 text-white px-3 py-1.5 rounded-md font-medium'
               id='logout'
             >Logout</button>
             <a href='/dashboard'>
-              <button class='bg-red-500 text-white px-3 py-2 rounded-md text-sm font-medium'
+              <button class='bg-red-600 text-white px-3 py-2 rounded-md text-sm font-medium'
               aria-current='page'
             >Dashboard</button></a>
           {{else}}
             <a
               href='/signup'>
-              <button class='bg-red-500 text-white px-3 py-2 rounded-md text-sm font-medium'
+              <button class='bg-red-600 text-white px-3 py-2 rounded-md text-sm font-medium'
               aria-current='page'
             >
             Sign Up</button></a>
             <a href='/login'>
-              <button class='bg-red-500 text-white px-3 py-2 rounded-md text-sm font-medium'
+              <button class='bg-red-600 text-white px-3 py-2 rounded-md text-sm font-medium'
               aria-current='page'
             ><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 float-left mr-1">
               <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
               </svg>Login</button></a>
           {{/if}}
             <a href="/aboutus">
-              <button class="bg-red-500 text-white px-3 py-2 rounded-md text-sm font-medium" 
+              <button class="bg-red-600 text-white px-3 py-2 rounded-md text-sm font-medium" 
               aria-current="page"
             >
             About Us</button></a> 
