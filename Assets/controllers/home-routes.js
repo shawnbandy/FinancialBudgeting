@@ -293,7 +293,9 @@ router.get('/viewOne/budget/:id', withAuth, async (req, res) => {
       householdID: req.session.householdID,
       loggedIn: req.session.loggedIn,
     });
-  } catch (err) {}
+  } catch (err) {
+    console.log(err);
+  }
 });
 
 //!
