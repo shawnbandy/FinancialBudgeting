@@ -74,6 +74,27 @@
       </form>
     </div>
   </div>
+  <div class='text-center bg-white rounded-md py-3 px-2 pt-5 mt-6'>
+    <div class="grid grid-cols-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+      <div class="col-span-4 text-red-600 text-3xl font-semibold">Totals</div>
+      <div class="col-span-1">
+        <div class="text-red-600 text-xl font-semibold">Budget</div>
+        <div>{{budgetTotal}}</div>
+      </div>
+      <div class="col-span-1">
+        <div class="text-red-600 text-xl font-semibold">Expenses</div>
+        <div>{{expenseTotal}}</div>
+      </div>
+      <div class="col-span-1">
+        <div class="text-red-600 text-xl font-semibold">Income</div>
+        <div>{{incomeTotal}}</div>
+      </div>
+      <div class="col-span-1">
+        <div class="text-red-600 text-xl font-semibold">Est. Savings</div>
+        <div>{{savingTotal}}</div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <script src="./js/add.js"></script>
