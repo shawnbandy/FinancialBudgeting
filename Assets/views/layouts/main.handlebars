@@ -13,7 +13,7 @@
       href='https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css'
     />
     <!-- Connecting stylesheet for additional personalized css-->
-    <link rel="stylesheet" type="text/css" href="./style.css"/>
+    <link rel="stylesheet" type="text/css" href="/Assets/public/style.css" />
 
   </head>
 
@@ -70,8 +70,8 @@
           <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
           {{#if loggedIn}}
             <button
-              class='no-button bg-red-500 text-white px-3 py-1.5 rounded-md font-medium'
-              id='logout'
+              class='no-button bg-red-600 p-3 rounded-md'
+              id='logoutSm'
             >Logout</button>
             <a href='/dashboard'>
               <button class='bg-red-500 text-white px-3 py-2 rounded-md text-sm font-medium'
@@ -91,7 +91,7 @@
 
           {{/if}}
           <a
-            href='#'
+            href='/aboutus'
             class='bg-red-500 text-white px-3 py-2 rounded-md text-sm font-medium'
             aria-current='page'
           >About Us</a>

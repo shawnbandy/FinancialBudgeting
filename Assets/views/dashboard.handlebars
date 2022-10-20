@@ -2,13 +2,14 @@
 <!--Main page-->
 <section class='container mx-auto mt-9 m-6 min-h-screen'>
   <!--Establishes grid-->
-  <section class='grid grid-cols-1 sm:grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-5'>
+  <section class='grid grid-cols-2 space-x-6 sm:grid-cols-1 md:grid-cols-2 xs: grid-cols-1'>
     <!--Start of budget-->
     <section class='text-center bg-white rounded-md py-3 px-2 sm:my-5 md:my-0 mx-0'>
       <h2 class="text-red-600 text-3xl font-semibold">Budget</h2>
-      <div class="flex flex-row justify-between mx-3 text-xl font-regular mx-3 pb-1 border-b-2 border-red-600 mb-1">
-        <h3>Category</h3>
+      <div class="grid grid-cols-3 mx-3 text-xl font-medium pb-3">
+        <h3 class='justify-self-start'>Category</h3>
         <h3>Amount</h3>
+        <h3 class="justify-self-end">Edit</h3>
       </div>
       <div class="flex flex-col">
         {{#each budgetRev as |budget|}}
@@ -24,10 +25,11 @@
       <!--Start of Expenses-->
       <section class='text-center bg-white rounded-md py-3 px-2'>
         <h2 class="text-red-600 text-3xl font-semibold">Expenses</h2>
-        <div class="flex flex-row justify-between text-xl font-regular mx-3 pb-1 border-b-2 border-red-600 mb-1">
-          <h3>Purchase</h3>
-          <h3>Amount</h3>
-        </div>
+      <div class="grid grid-cols-3 mx-3 text-xl font-medium pb-3">
+        <h3 class='justify-self-start'>Category</h3>
+        <h3>Amount</h3>
+        <h3 class="justify-self-end">Edit</h3>
+      </div>
         <div class="flex flex-col">
           {{#each expenseRev as |expense|}}
           {{> expense-dashboard}}
@@ -39,10 +41,11 @@
       <!--Start of Income-->
       <section class='text-center bg-white rounded-md py-3 px-2'>
         <h2 class="text-red-600 text-3xl font-semibold">Income</h2>
-        <div class="flex flex-row justify-between text-xl font-regular mx-3 pb-1 border-b-2 border-red-600 mb-1">
-          <h3>Source</h3>
-          <h3>Amount</h3>
-        </div>
+      <div class="grid grid-cols-3 mx-3 text-xl font-medium pb-3">
+        <h3 class='justify-self-start'>Category</h3>
+        <h3>Amount</h3>
+        <h3 class="justify-self-end">Edit</h3>
+      </div>
         <div class="flex flex-col">
           {{#each incomeRev as |income|}}
           {{> income-dashboard}}
@@ -69,6 +72,27 @@
           Submit
         </button>
       </form>
+    </div>
+  </div>
+  <div class='text-center bg-white rounded-md py-3 px-2 pt-5 mt-6'>
+    <div class="grid grid-cols-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+      <div class="col-span-4 text-red-600 text-3xl font-semibold">Totals</div>
+      <div class="col-span-1">
+        <div class="text-red-600 text-xl font-semibold">Budget</div>
+        <div>{{budgetTotal}}</div>
+      </div>
+      <div class="col-span-1">
+        <div class="text-red-600 text-xl font-semibold">Expenses</div>
+        <div>{{expenseTotal}}</div>
+      </div>
+      <div class="col-span-1">
+        <div class="text-red-600 text-xl font-semibold">Income</div>
+        <div>{{incomeTotal}}</div>
+      </div>
+      <div class="col-span-1">
+        <div class="text-red-600 text-xl font-semibold">Est. Savings</div>
+        <div>{{savingTotal}}</div>
+      </div>
     </div>
   </div>
 </section>
