@@ -22,7 +22,7 @@
       <div class='mx-auto max-w-7xl px-2 sm:px-6 lg:px-8'>
         <div class='relative flex h-16 items-center justify-between'>
           <a href="/">
-            <img style="width:25px" src="./images/BudBud_logo.png">
+            <img style="width:25px" src="/images/BudBud_logo.png">
           </a>
           <a href="/">
             <h1 class="text-red-600 font-bold text-3xl"><span class="text-violet-900">ud</span>get</h1>
@@ -71,7 +71,7 @@
           <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
           {{#if loggedIn}}
             <button
-              class='no-button bg-red-600 p-3 rounded-md'
+              class='no-button bg-red-500 text-white px-3 py-1.5 rounded-md font-medium'
               id='logout'
             >Logout</button>
             <a
@@ -79,11 +79,6 @@
               class='bg-red-500 text-white px-3 py-2 rounded-md text-sm font-medium'
               aria-current='page'
             >Dashboard</a>
-            <button 
-              class="bg-red-500 text-white px-3 py-2 rounded-md text-sm font-medium" 
-              aria-current="page" 
-              id="houseHoldAddBtn">Add your Household</a>
-
           {{else}}
             <a
               href='/login'

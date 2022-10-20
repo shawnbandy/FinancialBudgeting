@@ -49,6 +49,62 @@ router.get('/gettingStarted', async (req, res) => {
 //   }
 // });
 
+// TUTORIAL ROUTES 
+// tutorial1 route
+router.get('/tutorial1', withAuth, async (req, res) => {
+  try {
+    res.render('tutorial1');
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
+// show add feature for budget
+router.get('/tutorialAdd', withAuth, async (req, res) => {
+  try {
+    res.render('tutorialAdd');
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
+
+// show edit button
+router.get('/tutorialEdit', withAuth, async (req, res) => {
+  try {
+    res.render('tutorialEdit');
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
+// show edit feature for budget category
+router.get('/tutorialEdit2', withAuth, async (req, res) => {
+  try {
+    res.render('tutorialEdit2');
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
+// tutorial2 route
+router.get('/tutorial2', withAuth, async (req, res) => {
+  try {
+    res.render('tutorial2');
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
+// tutorial3 route
+router.get('/tutorial3', withAuth, async (req, res) => {
+  try {
+    res.render('tutorial3');
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
 // about us route
 router.get('/aboutus', async (req, res) => {
   try {

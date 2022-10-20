@@ -1,12 +1,12 @@
 <!-- Render sub layouts here! -->
 <!--Main page-->
-<section class='container mx-auto mt-9 m-6 min-h-screen'>
+<section class='relative mt-9 m-6 min-h-screen'>
   <!--Establishes grid-->
-  <section class='grid grid-cols-2 space-x-6 sm:grid-cols-1 md:grid-cols-2'>
+  <section class='grid grid-cols-2 space-x-6'>
     <!--Start of budget-->
-    <section class='text-center bg-white rounded-md py-3 px-2 sm:my-5 md:my-0 mx-0'>
+    <section class='text-center bg-white rounded-md py-3 px-2'>
       <h2 class="text-red-600 text-3xl font-semibold">Budget</h2>
-      <div class="flex flex-row justify-between mx-3 text-xl font-regular mx-3 pb-1 border-b-2 border-red-600 mb-1">
+      <div class="flex flex-row justify-between mx-3 text-xl font-medium pb-3">
         <h3>Category</h3>
         <h3>Amount</h3>
       </div>
@@ -15,16 +15,21 @@
         {{> budget-dashboard}}
         {{/each}}
       </div>
-      <div>
-        <button class="btn btn-red bg-red-600 rounded-md px-2 py-1.5 text-white mt-2" id="budgetAdd" data-type="1">Add Category</button>
-        <button class="btn btn-red bg-red-600 rounded-md px-2 py-1.5 text-white mt-2" id="viewAllBudget" data-type="1">View All</button>
+      <div class="flex flex-col content-center">
+        <div>
+            <button class="btn btn-red bg-red-600 rounded-md px-2 py-1.5 text-white mt-2" id="budgetAdd" data-type="1">Add Category</button>
+            <button class="btn btn-red bg-red-600 rounded-md px-2 py-1.5 text-white mt-2" id="viewAllBudget" data-type="1">View All</button>
+        </div>
+        <!-- Bouncing Guide! -->
+        <span id="tutorial-1" class="flex flex-col self-center mt-6 animate-bounce rounded-md p-2 border-solid border-2 border-red-600 text-red-600 font-medium text-sm text-center max-w-xs">⇧<br>add budget<br>categories here 
+        </span>
       </div>
     </section>
-    <section class='space-y-6 text-center'>
+    <section class='relative space-y-6 text-center'>
       <!--Start of Expenses-->
       <section class='text-center bg-white rounded-md py-3 px-2'>
         <h2 class="text-red-600 text-3xl font-semibold">Expenses</h2>
-        <div class="flex flex-row justify-between text-xl font-regular mx-3 pb-1 border-b-2 border-red-600 mb-1">
+        <div class="flex flex-row justify-between mx-3 text-xl font-medium pb-3">
           <h3>Purchase</h3>
           <h3>Amount</h3>
         </div>
@@ -39,7 +44,7 @@
       <!--Start of Income-->
       <section class='text-center bg-white rounded-md py-3 px-2'>
         <h2 class="text-red-600 text-3xl font-semibold">Income</h2>
-        <div class="flex flex-row justify-between text-xl font-regular mx-3 pb-1 border-b-2 border-red-600 mb-1">
+        <div class="flex flex-row justify-between mx-3 text-xl font-medium pb-3">
           <h3>Source</h3>
           <h3>Amount</h3>
         </div>
@@ -53,6 +58,7 @@
       </section>
     </section>
   </section>
+ 
     <!-- Modal content -->
   <div id="editModal" class="modal hidden">
     <div class="modal-content text-center bg-white rounded-md py-3 px-2 pt-5 mt-6">
@@ -71,8 +77,8 @@
       </form>
     </div>
   </div>
+    <a href="/tutorialAdd" class="fixed right-20 bottom-10 mt-4 rounded-md p-5 bg-white text-red-600 font-bold text-md text-center max-w-xs border border-solid border-4 border-violet-900" id="nextTutorial">Next</a>
+    <a href="/dashboard" class="fixed right-40 bottom-10 mt-4 rounded-md p-5 bg-white text-red-600 font-bold text-md text-center max-w-xs border border-solid border-4 border-violet-900" id="nextTutorial">Skip Tutorial</a>
 </section>
 
-<script src="./js/add.js"></script>
-<script src="./js/viewAll.js"></script>
-<script src="./js/editDelete.js"></script>
+<script src="./js/tutorial.js"></script>

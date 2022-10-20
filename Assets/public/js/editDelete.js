@@ -50,6 +50,30 @@ const makeEdit = async (event) => {
   }
 };
 
+const delItem = async (event) => {
+  event.preventDefault();
+  let id = event.target.id; 
+  console.log(event.target.className)   
+  let type = budIncExp2(event.target.className)
+  currentType = type;
+  currentID = id;
+ 
+
+  const res = await fetch(`/api/${currentType}/delete/${currentID}`, {
+    method: 'DELETE',    
+    headers: { 'Content-Type': 'application/json' },
+  });
+
+  if (res.ok) {
+    console.log('--------------- res.ok');
+    location.reload();
+  } else {
+    alert('Failed to delete');
+  }
+  
+
+}
+
 document
   .querySelectorAll('.editBudgetBtn')
   .forEach((el) => el.addEventListener('click', showEdit));
@@ -66,6 +90,19 @@ modalClose.addEventListener('click', function () {
   modal.setAttribute('class', 'hidden');
 });
 
+document
+  .querySelectorAll('.deleteBudgetBtn')
+  .forEach((el) => el.addEventListener('click', delItem));
+
+document
+  .querySelectorAll('.deleteIncomeBtn')
+  .forEach((el) => el.addEventListener('click', delItem));
+
+document
+  .querySelectorAll('.deleteExpenseBtn')
+  .forEach((el) => el.addEventListener('click', delItem));
+
+
 editForm.addEventListener('submit', makeEdit);
 
 const budIncExp = (className) => {
@@ -78,6 +115,22 @@ const budIncExp = (className) => {
       result = 'expense';
       break;
     case 'btn editIncomeBtn':
+      result = 'income';
+      break;
+  }
+  return result;
+};
+
+const budIncExp2 = (className) => {
+  let result;
+  switch (className) {
+    case 'btn deleteBudgetBtn':
+      result = 'budget';
+      break;
+    case 'btn deleteExpenseBtn':
+      result = 'expense';
+      break;
+    case 'btn deleteIncomeBtn':
       result = 'income';
       break;
   }
