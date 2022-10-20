@@ -49,7 +49,7 @@ router.get('/gettingStarted', async (req, res) => {
 //   }
 // });
 
-// TUTORIAL ROUTES 
+// TUTORIAL ROUTES
 // tutorial1 route
 router.get('/tutorial1', withAuth, async (req, res) => {
   try {
@@ -67,7 +67,6 @@ router.get('/tutorialAdd', withAuth, async (req, res) => {
     res.status(400).json(err);
   }
 });
-
 
 // show edit button
 router.get('/tutorialEdit', withAuth, async (req, res) => {
@@ -126,6 +125,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
     });
     const budgetArr = budgetData.map((content) => content.get({ plain: true }));
     const budgetRev = budgetArr.reverse();
+    const budgetTotal = getTotals(budgetRev);
 
     //*this gets all of our expenses in plain data, then reverses it so the most recent expenses are first
     const expenseData = await Expenses.findAll({
@@ -136,6 +136,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
     const expenseArr = expenseData.map((content) =>
       content.get({ plain: true })
     );
+    const expenseTotal = getTotals(expenseArr);
     const expenseRev = displayFive(expenseArr.reverse());
 
     //*this gets all of our incomes in plain data, then reverses it so the most recent incomes are first
@@ -145,13 +146,20 @@ router.get('/dashboard', withAuth, async (req, res) => {
       },
     });
     const incomeArr = incomeData.map((content) => content.get({ plain: true }));
+    const incomeTotal = getTotals(incomeArr);
     const incomeRev = displayFive(incomeArr.reverse());
+
+    const savingTotal = calc(incomeTotal).sub(budgetTotal);
 
     res.render('dashboard', {
       loggedIn: req.session.loggedIn,
       budgetRev,
       expenseRev,
       incomeRev,
+      budgetTotal,
+      expenseTotal,
+      incomeTotal,
+      savingTotal,
       loggedIn: true,
     });
   } catch (err) {}
@@ -215,6 +223,7 @@ router.get('/viewAll/:type', withAuth, async (req, res) => {
     });
 
     const budgetArr = budgetData.map((content) => content.get({ plain: true }));
+    console.log(budgetArr);
     const budgetLeft = totalBudgetExpenses(budgetArr);
     for (let i = 0; i < budgetArr.length; i++) {
       budgetArr[i].budgetLeftover = budgetLeft[i];
@@ -284,7 +293,9 @@ router.get('/viewOne/budget/:id', withAuth, async (req, res) => {
       householdID: req.session.householdID,
       loggedIn: req.session.loggedIn,
     });
-  } catch (err) {}
+  } catch (err) {
+    console.log(err);
+  }
 });
 
 //!
@@ -348,6 +359,14 @@ const totalBudgetExpenses = (array) => {
     sum = 0;
   }
   return newArray;
+};
+
+const getTotals = (array) => {
+  let sum = 0;
+  for (let i = 0; i < array.length; i++) {
+    sum = calc(sum).add(array[i].amount);
+  }
+  return sum;
 };
 
 module.exports = router;
