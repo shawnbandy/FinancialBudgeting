@@ -99,5 +99,12 @@ This application uses a variety of different NPM packages; most are to handle th
         E. Shawn Canavan
             i. [GitHub](https://github.com/shawnbandy)
 
+## Visuals:
+![Budget Buddy Demo](./Assets/public/images/BudBud_demo.gif)
+
+
+## Launch website
+** Please use the following link to launch Budget Buddy: [Click Here](https://budget-buddy-group-project.herokuapp.com/)
+
 ---
 © 2022 The Budget Buddy. All Rights Reserved.
